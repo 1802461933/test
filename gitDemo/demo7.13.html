@@ -1,495 +1,573 @@
 <!DOCTYPE html>
 <!--HTML5标识符-->
 <html lang="zh-CN">
-    <!--lang=zh-CN表示使用中问编码-->
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-        <meta name="viewport"  content="width=device-width,initial-scale=1,user-scalable=no"/>
-        <!--name=viewport表示固定网页比例不允许用户进行缩放，width=device-width表示当前设备宽度,initial-scale=1表示缩放-->
-        <title>Bootstrap 101 Template</title>
-        <link rel="stylesheet" href="bootStrap/css/bootstrap.min.css" />
-    </head>
-    <body>
-        <div class="container" style="background-color: red;height: 20px;">
-        <!--<h1>你好，世界</h1>-->
-            <div class="row">
-                <div class="col-md-1">.ol-md-1</div>
-                <div class="col-md-1">.ol-md-1</div>
-                <div class="col-md-1">.ol-md-1</div>
-                <div class="col-md-1">.ol-md-1</div>
-                <div class="col-md-1">.ol-md-1</div>
-                <div class="col-md-1">.ol-md-1</div>
-                <div class="col-md-1">.ol-md-1</div>
-                <div class="col-md-1">.ol-md-1</div>
-                <div class="col-md-1">.ol-md-1</div>
-                <div class="col-md-1">.ol-md-1</div>
-                <div class="col-md-1">.ol-md-1</div>
-                <div class="col-md-1">.ol-md-1</div>
-            </div>
-            <div class="row">
-                <div class="col-md-8" style="background-color:#E6E6E6 ;border: 1px solid black;">.ol-md-8</div>
-                <div class="col-md-4" style="background-color:#E6E6E6 ;border: 1px solid black;">.ol-md-4</div>
-            </div>
-            <div class="row">
-                <div class="col-md-4" style="background-color:#E6E6E6 ;border: 1px solid black;">.ol-md-4</div>
-                <div class="col-md-4" style="background-color:#E6E6E6 ;border: 1px solid black;">.ol-md-4</div>
-                <div class="col-md-4" style="background-color:#E6E6E6 ;border: 1px solid black;">.ol-md-4</div>
-            </div>
-            <div class="row">
-                <div class="col-md-6" style="background-color:#E6E6E6 ;border: 1px solid black;">.ol-md-6</div>
-                <div class="col-md-7" style="background-color:#E6E6E6 ;border: 1px solid black;">.ol-md-6</div>
-            </div>
-            <div class="row">
-                <div class="col-md-4 col-lg-10 col-sm-6 col-xs-5 visible-lg-7" style="background-color:#E6E6E6 ;border: 1px solid black;">.ol-md-test</div>
-                <!--在大屏幕上宽度为10 中等上为4 小屏幕上为6 最小屏幕上为12-->
-            </div>
-            <div class="row">
-                <div class="col-md-3 col-xs-8" style="background-color:#E6E6E6 ;border: 1px solid black;">.ol-md-4<br>o my gar de</div>
-                <div class="col-md-3" style="background-color:#E6E6E6 ;border: 1px solid black;">.ol-md-4</div>
-                <div class="clearfix visible-xs-block"></div>
-                <div class="col-md-3 col-md-offset-3" style="background-color:#E6E6E6 ;border: 1px solid black;">.ol-md-4</div>
-                
-            </div>
-            <div class="row">
-                <div class="col-md-3" style="background-color:#E6E6E6 ;border: 1px solid black;">.ol-md-4<br>o my gar de</div>
-            </div>
-            <div class="row">
-                <div class="col-md-7 " style="background-color:#E6E6E6 ;border: 1px solid black;">.ol-md-4
-                    <div class="row"style="background-color: darkred;">
-                        <div class="col-lg-6 col-sm-3 col-xs-2" style="border: blue solid 1px; color: green;">我是内row的</div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3 col-md-push-6" style="background-color:#E6E6E6 ;border: 1px solid black;">我应该在前</div>
-                <div class="col-md-6 col-md-pull-3" style="background-color:#E6E6E6 ;border: 1px solid black;">我应该在后</div>
-            </div>
-            <div class="row">
-                <div class="col-lg-5">
-                    <h1>我是主的 <small class="small">我是副的</small></h1>
-                </div>
-                <div class="col-lg-5 col-lg-offset-2">
-                    <p>段落1</p>
-                    <p class="lead">段落2</p>
-                    <p>段落3</p>
-                    you mammaa sakda sawus <mark>wsda</mark> sad
-                    <del> sajdhgasgdasyi</del>
-                    <p>sakldhasgi<small>sadasdas</small>suadas</p>
-                    <blockquote class="blockquote-reverse">
-                        <p>
-                            一直使用SSH连接服务器,但是对它的原理却不太了解。这次设置Octopress的时候,需要使用SSH 方式连接Github, 正好对SSH的工作方式做了下了解。
-                        </p>
-                        <footer>注释该链接<cite title="source title">spirce title</cite></footer>
-                    </blockquote>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-3">
-                    <ul class="list-unstyled list-inline">
-                        <li>111111111</li>
-                        <li>222222222</li>
-                        <li>333333333</li>
-                    </ul>
-                </div>
-                <div class="col-lg-4">
-                    <dl class="dl-horizontal">
-                        <dt>第一行dt</dt>
-                        <dd>第二行dd</dd>
-                        <dd>第五行dd</dd>
-                        <dt>第三行dt</dt>
-                        <dd>第四行dd</dd>
-                    </dl>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-3">
-                    <p>我的天哪我哦<code>&lt;span&gt;</code>啦啦啦</p>
-                </div>
-                <div class="col-lg-3">
-                    <p>按下<kbd>Alt+Shfit</kbd>输出</p>
-                </div>
-                <div class="col-lg-3">
-                    <pre class="pre-scrollable">&lt;span class="madiv"&gt;其实这就是一个span行内标签是一个标签&lt;/span&gt;&lt;div&gt;其实这就是一个span行内标签是一个标签&lt;/div&gt;
+	<!--lang=zh-CN表示使用中问编码-->
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="viewport"  content="width=device-width,initial-scale=1,user-scalable=no"/>
+		<!--name=viewport表示固定网页比例不允许用户进行缩放，width=device-width表示当前设备宽度,initial-scale=1表示缩放-->
+		<title>Bootstrap 101 Template</title>
+		<link rel="stylesheet" href="bootStrap/css/bootstrap.min.css" />
+	</head>
+	<body>
+		<div class="container" style="background-color: red;height: 20px;">
+		<!--<h1>你好，世界</h1>-->
+			<div class="row">
+				<div class="col-md-1">.ol-md-1</div>
+				<div class="col-md-1">.ol-md-1</div>
+				<div class="col-md-1">.ol-md-1</div>
+				<div class="col-md-1">.ol-md-1</div>
+				<div class="col-md-1">.ol-md-1</div>
+				<div class="col-md-1">.ol-md-1</div>
+				<div class="col-md-1">.ol-md-1</div>
+				<div class="col-md-1">.ol-md-1</div>
+				<div class="col-md-1">.ol-md-1</div>
+				<div class="col-md-1">.ol-md-1</div>
+				<div class="col-md-1">.ol-md-1</div>
+				<div class="col-md-1">.ol-md-1</div>
+			</div>
+			<div class="row">
+				<div class="col-md-8" style="background-color:#E6E6E6 ;border: 1px solid black;">.ol-md-8</div>
+				<div class="col-md-4" style="background-color:#E6E6E6 ;border: 1px solid black;">.ol-md-4</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4" style="background-color:#E6E6E6 ;border: 1px solid black;">.ol-md-4</div>
+				<div class="col-md-4" style="background-color:#E6E6E6 ;border: 1px solid black;">.ol-md-4</div>
+				<div class="col-md-4" style="background-color:#E6E6E6 ;border: 1px solid black;">.ol-md-4</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6" style="background-color:#E6E6E6 ;border: 1px solid black;">.ol-md-6</div>
+				<div class="col-md-7" style="background-color:#E6E6E6 ;border: 1px solid black;">.ol-md-6</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 col-lg-10 col-sm-6 col-xs-5 visible-lg-7" style="background-color:#E6E6E6 ;border: 1px solid black;">.ol-md-test</div>
+				<!--在大屏幕上宽度为10 中等上为4 小屏幕上为6 最小屏幕上为12-->
+			</div>
+			<div class="row">
+				<div class="col-md-3 col-xs-8" style="background-color:#E6E6E6 ;border: 1px solid black;">.ol-md-4<br>o my gar de</div>
+				<div class="col-md-3" style="background-color:#E6E6E6 ;border: 1px solid black;">.ol-md-4</div>
+				<div class="clearfix visible-xs-block"></div>
+				<div class="col-md-3 col-md-offset-3" style="background-color:#E6E6E6 ;border: 1px solid black;">.ol-md-4</div>
+				
+			</div>
+			<div class="row">
+				<div class="col-md-3" style="background-color:#E6E6E6 ;border: 1px solid black;">.ol-md-4<br>o my gar de</div>
+			</div>
+			<div class="row">
+				<div class="col-md-7 " style="background-color:#E6E6E6 ;border: 1px solid black;">.ol-md-4
+					<div class="row"style="background-color: darkred;">
+						<div class="col-lg-6 col-sm-3 col-xs-2" style="border: blue solid 1px; color: green;">我是内row的</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3 col-md-push-6" style="background-color:#E6E6E6 ;border: 1px solid black;">我应该在前</div>
+				<div class="col-md-6 col-md-pull-3" style="background-color:#E6E6E6 ;border: 1px solid black;">我应该在后</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-5">
+					<h1>我是主的 <small class="small">我是副的</small></h1>
+				</div>
+				<div class="col-lg-5 col-lg-offset-2">
+					<p>段落1</p>
+					<p class="lead">段落2</p>
+					<p>段落3</p>
+					you mammaa sakda sawus <mark>wsda</mark> sad
+					<del> sajdhgasgdasyi</del>
+					<p>sakldhasgi<small>sadasdas</small>suadas</p>
+					<blockquote class="blockquote-reverse">
+						<p>
+							一直使用SSH连接服务器,但是对它的原理却不太了解。这次设置Octopress的时候,需要使用SSH 方式连接Github, 正好对SSH的工作方式做了下了解。
+						</p>
+						<footer>注释该链接<cite title="source title">spirce title</cite></footer>
+					</blockquote>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-3">
+					<ul class="list-unstyled list-inline">
+						<li>111111111</li>
+						<li>222222222</li>
+						<li>333333333</li>
+					</ul>
+				</div>
+				<div class="col-lg-4">
+					<dl class="dl-horizontal">
+						<dt>第一行dt</dt>
+						<dd>第二行dd</dd>
+						<dd>第五行dd</dd>
+						<dt>第三行dt</dt>
+						<dd>第四行dd</dd>
+					</dl>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-3">
+					<p>我的天哪我哦<code>&lt;span&gt;</code>啦啦啦</p>
+				</div>
+				<div class="col-lg-3">
+					<p>按下<kbd>Alt+Shfit</kbd>输出</p>
+				</div>
+				<div class="col-lg-3">
+					<pre class="pre-scrollable">&lt;span class="madiv"&gt;其实这就是一个span行内标签是一个标签&lt;/span&gt;&lt;div&gt;其实这就是一个span行内标签是一个标签&lt;/div&gt;
 &lt;p&gt;其实这就是一个span行内标签是一个标签&lt;/p&gt;
 &lt;span&gt;其实这就是一个span行内标签是一个标签&lt;/span&gt;
-                    </pre>
-                </div>
-                <div class="col-md-4">
-                    <var>y</var>=<var>m</var>+<var>b</var>
-                    输出:<samp>Y=我是222</samp>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-10">
-                    <div class="table-responsive">
-                    <table class="table table-striped table-bordered table-hover table-condensed table-responsive">
-                        <tr class="active">
-                            <td>第一行第一列</td>
-                            <td>第一行第二列</td>
-                            <td>第一行第三列</td>
-                            <td>第一行第四列</td>
-                        </tr>
-                        <tr class="info">
-                            <td>第二行第一列</td>
-                            <td>第二行第二列</td>
-                            <td>第二行第三列</td>
-                            <td>第二行第四列</td>
-                        </tr>
-                        <tr class="success">
-                            <td>第三行第一列</td>
-                            <td>第三行第二列</td>
-                            <td>第三行第三列</td>
-                            <td>第三行第四列</td>
-                        </tr>
-                        <tr class="warning">
-                            <td>第四行第一列</td>
-                            <td>第四行第二列</td>
-                            <td>第四行第三列</td>
-                            <td>第四行第四列</td>
-                        </tr>
-                        <tr class="danger">
-                            <td>第五行第一列</td>
-                            <td>第五行第二列</td>
-                            <td>第五行第三列</td>
-                            <td>第五行第四列</td>
-                        </tr>
-                        <tr class="danger">
-                            <td class="success">第六行第一列</td>
-                            <td class="info">第六行第二列</td>
-                            <td class="active">第六行第三列</td>
-                            <td class="warning">第六行第四列</td>
-                            <td class="danger">第六行第五列</td>
-                        </tr>
-                    </table>
-                    </div>
-                </div>
-                
-                <div class="row">
-                    <div class="col-lg-10  col-lg-offset-1" >
-                        <form class="form-inline">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">邮箱：</label>
-                                <input type="email" class="form-control" placeholder="邮箱" />
-                            </div>
-                            <div class="form-group">
-                                <label>姓名：</label>
-                                <input type="text" class="form-control" placeholder="姓名"/>
-                            </div>
-                            <div class="form-group">
-                                <label>上传头像:</label>
-                                <input type="file" />
-                                <p class="help-block">选择文件上传</p>
-                            </div>
-                            
-                        </form>
-                    </div>
-                </div>
-                
-                <div class="row">
-                    <div class="col-lg-10 col-lg-push-1">
-                        <form class="form-inline">
-                            <div class="form-group">
-                                <label class="sr-only">金额:</label>
-                                <div class="input-group">
-                                    <div class="input-group-addon" >￥</div>
-                                    <input type="text" class="form-control" />
-                                    <div class="input-group-addon">.00</div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                
-                <div class="col-lg-10 col-lg-offset-1">
-                <form class="form-horizontal" style="margin-top: 10px;">
-                        <div class="form-group">
-                            <label class="col-lg-1 control-label">姓名:</label>
-                            <div class="col-lg-3">
-                                <input class="form-control"  type="text"/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-lg-1 control-label">电话:</label>
-                            <div class="col-lg-3">
-                                <input class="form-control"  type="text"/>
-                            </div>
-                        </div>
-                        <div class="checkbox">
-                            <label class="checkbox-inline">
-                                <input type="checkbox" />
-                            </label>
-                        </div>
-                    </div>
-                    
-                    <div class="checkbox">
-                        <label class="checkbox-inline">
-                            <input type="checkbox" />
-                        </label>
-                    </div>
-                    <div class="checkbox">
-                        <label class="checkbox-inline">
-                            <input type="checkbox" />
-                        </label>
-                    </div>
-                    <input type="radio" name="1"/>
-                    <input type="radio" name="1"/>
-                    <input type="radio" name="1"/>
-                </form>
-                
-                <form class="form-horizontal col-lg-10 col-lg-offset-1">
-                    <label class="control-label">请选择</label>
-                    <select class="form-control">
-                            <option>1</option>
-                            <option>1</option>
-                            <option>1</option>
-                    </select>
-                    <div class="form-group">
-                        <label class="col-lg-2">电话:</label>
-                        <div class="col-lg-8">
-                            <p class="form-control-static">1819715481</p>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        
-        
-            <div class="row">
-                <form class="form-horizontal">
-                    <div class="form-group">
-                        <label class="control-label col-lg-2 ">电话：</label>
-                        <div class="col-lg-8">
-                            <p class="form-control-static">18415454564</p>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-lg-3">
-                            姓名：
-                        </label>
-                        <div class="col-lg-4">
-                            <input class="form-control input-sm col-lg-4" type="text"/>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="row">
-                <div class="col-lg-10 col-lg-push-1">
-                    <a class="btn btn-default">A按钮</a>
-                    <button class="btn btn-default">按钮</button>
-                    <input class="btn bnt-default" type="submit" value="提交按钮"/>
-                    <button class="btn btn-default">默认</button>
-                    <button class="btn btn-primary">首选</button>
-                    <button class="btn btn-info">一般</button>
-                    <button class="btn btn-success">成功</button>
-                    <button class="btn btn-warning">警告</button>
-                    <button class="btn btn-danger">危险</button>
-                    <button class="btn btn-success btn-lg active">大按钮</button>
-                    <button class="btn btn-success disabled">默认按钮</button>
-                    <button class="btn btn-success btn-sm">小按钮</button>
-                    <button class="btn btn-success btn-xs btn-block">特小按钮</button>
-                </div>	
-            </div>
-            <div class="row">
-                <div class="col-lg-10 col-lg-push-1">
-                    <img src="../img/11624852_152638235000_2.jpg" class="img-responsive img-thumbnail"/><br/>
-                    <img src="../img/73T58PIC9aj_1024.jpg"  class="img-responsive center-block img-circle"/>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-10 col-lg-push-1">
-                    <p class="text-muted bg-danger">test你猜干嘛的测试的</p>
-                    <p class="text-success bg-info">test你猜干嘛的测试的</p>
-                    <p class="text-info bg-success">test你猜干嘛的测试的</p>
-                    <p class="text-warning bg-primary">test你猜干嘛的测试的</p>
-                    <p class="text-primary bg-warning">test你猜干嘛的测试的</p>
-                    <p class="text-danger">test你猜干嘛的测试的</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-10 col-lg-push-1">
-                    <span class="glyphicon glyphicon-ice-lolly"></span>
-                    <div class="dropup">
-                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                            菜单	  &nbsp;<span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                            <li>列表1</li>
-                            <li class="dropdown-header">列表2</li>
-                            <li role="separator" class="divider"></li>
-                            <li>列表4</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class=" col-lg-10 col-lg-push-1">
-                    <div class="btn-toolbar">
-                        <div class="btn-group btn-group-sm" role="group" aria-lable="...">
-                            <button class="btn btn-default">左按钮</button>
-                            <button class="btn btn-default">中按钮</button>
-                            <button class="btn btn-default">右按钮</button>
-                        </div>
-                        <div class="btn-group btn-group-lg" role="group" aria-lable="...">
-                            <button class="btn btn-default">左按钮</button>
-                            <button class="btn btn-default">中按钮</button>
-                            <div class="btn-group dropup" role="group">
-                                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                                    右按钮
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li>111111111</li>
-                                    <li>222222222</li>
-                                    <li>333333333</li>
-                                </ul>
-                            </div>	
-                        </div>
-                    </div>
-                    <div class="btn-group-vertical">
-                        <button class="btn btn-default">左按钮</button>
-                        <button class="btn btn-default">中按钮</button>
-                        <button class="btn btn-default">右按钮</button>
-                    </div>
-                    <div class="input-group input-group-lg">
-                        <span class="input-group-addon">http://www.</span>
-                        <input type="text" class="form-control" />
-                        <span class="input-group-btn"><button class="btn btn-default">.com</button></span>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <nav style="margin-bottom: 10px;">
-                        <ul class="nav nav-tabs nav-stacked">
-                            <li class="active" role="presentation"><a>Home</a></li>
-                            <li  role="presentation"><a>Profile</a></li>
-                            <li role="presentation"><a>wamp</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="col-lg-12">
-                    <nav style="margin-bottom: 10px;margin-top: 10px;">
-                        <ul class="nav nav-pills">
-                            <li class="active" role="presentation"><a>Home</a></li>
-                            <li  role="presentation"><a>Profile</a></li>
-                            <li role="presentation"><a>wamp</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="col-lg-12">
-                    <nav style="margin-bottom: 10px;">
-                        <ul class="nav nav-pills nav-justified">
-                            <li class="active" role="presentation">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                                    Home
-                                    <span class="caret"></span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li>11111111111</li>
-                                    <li>11111111111</li>
-                                    <li>11111111111</li>
-                                </ul>
-                            </li>
-                            <li  role="presentation"><a>Profile</a></li>
-                            <li role="presentation"><a>wamp</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <nav class="navbar navbar-default navbar-fixed-top">
-                        <div class="container-fluid">
-                            <div class="navbar-header">
-                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                                    <span class="sr-only">导航</span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </button>
-                                <a class="navbar-brand" href="#">Brand</a>
-                            </div>
-                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                                <ul class="nav navbar-nav">
-                                    <li class="active"><a href="#">Link<span class="sr-only">(current)</span></a></li>
-                                    <li><a>link</a></li>
-                                    <li class="dropdown">
-                                        <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                            Dropdown<span class="caret"></span>
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                            <li><a>Active</a></li>
-                                            <li><a>Active</a></li>
-                                            <li><a>Active</a></li>
-                                            <li><a>Active</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                                <form class="navbar-form navbar-left">
-                                    <div class="form-group">
-                                        <label>搜索</label>
-                                        <input type="text" class="form-control" />
-                                    </div>
-                                    <button class="btn btn-default">提交</button>
-                                </form>
-                                <ul class="nav navbar-nav navbar-right">
-                                    <li><a>Home</a></li>
-                                    <li><a>Wemd</a></li>
-                                    <li><a>School</a></li>
-                                    <li>
-                                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                            Home
-                                            <span class="caret"></span>
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                            <li>Home</li>
-                                            <li>woird</li>
-                                            <li>rvzhi</li>
-                                            <li class="divider"></li>
-                                            <li>daniu</li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-10 col-lg-push-1">
-                    <ol class="breadcrumb">
-                        <li>Home</li>
-                        <li>Libeard</li>    
-                        <li class="active">Wactive</li>
-                    </ol>
-                </div>
-                <div class="col-lg-10">
-                    <nav aria-lable="Page navigation" style="float: right;">
-                        <ul class="pagination">
-                            <li>
-                                <a aria-lable="previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                </a>
-                            </li>
-                            <li><a>1</a></li>
-                            <li><a>2</a></li>
-                            <li><a>3</a></li>
-                            <li><a>4</a></li>
-                            <li><a>5</a></li>
-                            <li><a>6</a></li>
-                            <li><a>7</a></li>
-                            <li><a>8</a></li>
-                            <li><a>共计115页</a></li>
-                            <li>
-                                <a aria-lable="Previous">
-                                    <span aria-hidden="true">&raquo;</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                    
-                </div>
-            </div>
-        </div>
-        <script type="text/javascript" src="jquery-1.9.1.min.js"></script>
-        <script type="text/javascript" src="bootStrap/js/bootstrap.min.js" ></script>
-    </body>
+					</pre>
+				</div>
+				<div class="col-md-4">
+					<var>y</var>=<var>m</var>+<var>b</var>
+					输出:<samp>Y=我是222</samp>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-10">
+					<div class="table-responsive">
+					<table class="table table-striped table-bordered table-hover table-condensed table-responsive">
+						<tr class="active">
+							<td>第一行第一列</td>
+							<td>第一行第二列</td>
+							<td>第一行第三列</td>
+							<td>第一行第四列</td>
+						</tr>
+						<tr class="info">
+							<td>第二行第一列</td>
+							<td>第二行第二列</td>
+							<td>第二行第三列</td>
+							<td>第二行第四列</td>
+						</tr>
+						<tr class="success">
+							<td>第三行第一列</td>
+							<td>第三行第二列</td>
+							<td>第三行第三列</td>
+							<td>第三行第四列</td>
+						</tr>
+						<tr class="warning">
+							<td>第四行第一列</td>
+							<td>第四行第二列</td>
+							<td>第四行第三列</td>
+							<td>第四行第四列</td>
+						</tr>
+						<tr class="danger">
+							<td>第五行第一列</td>
+							<td>第五行第二列</td>
+							<td>第五行第三列</td>
+							<td>第五行第四列</td>
+						</tr>
+						<tr class="danger">
+							<td class="success">第六行第一列</td>
+							<td class="info">第六行第二列</td>
+							<td class="active">第六行第三列</td>
+							<td class="warning">第六行第四列</td>
+							<td class="danger">第六行第五列</td>
+						</tr>
+					</table>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-lg-10  col-lg-offset-1" >
+						<form class="form-inline">
+							<div class="form-group">
+								<label for="exampleInputEmail1">邮箱：</label>
+								<input type="email" class="form-control" placeholder="邮箱" />
+							</div>
+							<div class="form-group">
+								<label>姓名：</label>
+								<input type="text" class="form-control" placeholder="姓名"/>
+							</div>
+							<div class="form-group">
+								<label>上传头像:</label>
+								<input type="file" />
+								<p class="help-block">选择文件上传</p>
+							</div>
+							
+						</form>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-lg-10 col-lg-push-1">
+						<form class="form-inline">
+							<div class="form-group">
+								<label class="sr-only">金额:</label>
+								<div class="input-group">
+									<div class="input-group-addon" >￥</div>
+									<input type="text" class="form-control" />
+									<div class="input-group-addon">.00</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				
+				<div class="col-lg-10 col-lg-offset-1">
+				<form class="form-horizontal" style="margin-top: 10px;">
+						<div class="form-group">
+							<label class="col-lg-1 control-label">姓名:</label>
+							<div class="col-lg-3">
+								<input class="form-control"  type="text"/>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-lg-1 control-label">电话:</label>
+							<div class="col-lg-3">
+								<input class="form-control"  type="text"/>
+							</div>
+						</div>
+						<div class="checkbox">
+							<label class="checkbox-inline">
+								<input type="checkbox" />
+							</label>
+						</div>
+					</div>
+					
+					<div class="checkbox">
+						<label class="checkbox-inline">
+							<input type="checkbox" />
+						</label>
+					</div>
+					<div class="checkbox">
+						<label class="checkbox-inline">
+							<input type="checkbox" />
+						</label>
+					</div>
+					<input type="radio" name="1"/>
+					<input type="radio" name="1"/>
+					<input type="radio" name="1"/>
+				</form>
+				
+				<form class="form-horizontal col-lg-10 col-lg-offset-1">
+					<label class="control-label">请选择</label>
+					<select class="form-control">
+							<option>1</option>
+							<option>1</option>
+							<option>1</option>
+					</select>
+					<div class="form-group">
+						<label class="col-lg-2">电话:</label>
+						<div class="col-lg-8">
+							<p class="form-control-static">1819715481</p>
+						</div>
+					</div>
+				</form>
+			</div>
+		
+		
+			<div class="row">
+				<form class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-lg-2 ">电话：</label>
+						<div class="col-lg-8">
+							<p class="form-control-static">18415454564</p>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-lg-3">
+							姓名：
+						</label>
+						<div class="col-lg-4">
+							<input class="form-control input-sm col-lg-4" type="text"/>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="row">
+				<div class="col-lg-10 col-lg-push-1">
+					<a class="btn btn-default">A按钮</a>
+					<button class="btn btn-default">按钮</button>
+					<input class="btn bnt-default" type="submit" value="提交按钮"/>
+					<button class="btn btn-default">默认</button>
+					<button class="btn btn-primary">首选</button>
+					<button class="btn btn-info">一般</button>
+					<button class="btn btn-success">成功</button>
+					<button class="btn btn-warning">警告</button>
+					<button class="btn btn-danger">危险</button>
+					<button class="btn btn-success btn-lg active">大按钮</button>
+					<button class="btn btn-success disabled">默认按钮</button>
+					<button class="btn btn-success btn-sm">小按钮</button>
+					<button class="btn btn-success btn-xs btn-block">特小按钮</button>
+				</div>	
+			</div>
+			<div class="row">
+				<div class="col-lg-10 col-lg-push-1">
+					<img src="../img/11624852_152638235000_2.jpg" class="img-responsive img-thumbnail"/><br/>
+					<img src="../img/73T58PIC9aj_1024.jpg"  class="img-responsive center-block img-circle"/>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-10 col-lg-push-1">
+					<p class="text-muted bg-danger">test你猜干嘛的测试的</p>
+					<p class="text-success bg-info">test你猜干嘛的测试的</p>
+					<p class="text-info bg-success">test你猜干嘛的测试的</p>
+					<p class="text-warning bg-primary">test你猜干嘛的测试的</p>
+					<p class="text-primary bg-warning">test你猜干嘛的测试的</p>
+					<p class="text-danger">test你猜干嘛的测试的</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-10 col-lg-push-1">
+					<span class="glyphicon glyphicon-ice-lolly"></span>
+					<div class="dropup">
+						<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+							菜单	  &nbsp;<span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+							<li>列表1</li>
+							<li class="dropdown-header">列表2</li>
+							<li role="separator" class="divider"></li>
+							<li>列表4</li>
+						</ul>
+					</div>
+				</div>
+				<div class=" col-lg-10 col-lg-push-1">
+					<div class="btn-toolbar">
+						<div class="btn-group btn-group-sm" role="group" aria-lable="...">
+							<button class="btn btn-default">左按钮</button>
+							<button class="btn btn-default">中按钮</button>
+							<button class="btn btn-default">右按钮</button>
+						</div>
+						<div class="btn-group btn-group-lg" role="group" aria-lable="...">
+							<button class="btn btn-default">左按钮</button>
+							<button class="btn btn-default">中按钮</button>
+							<div class="btn-group dropup" role="group">
+								<button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+									右按钮
+									<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu">
+									<li>111111111</li>
+									<li>222222222</li>
+									<li>333333333</li>
+								</ul>
+							</div>	
+						</div>
+					</div>
+					<div class="btn-group-vertical">
+						<button class="btn btn-default">左按钮</button>
+						<button class="btn btn-default">中按钮</button>
+						<button class="btn btn-default">右按钮</button>
+					</div>
+					<div class="input-group input-group-lg">
+						<span class="input-group-addon">http://www.</span>
+						<input type="text" class="form-control" />
+						<span class="input-group-btn"><button class="btn btn-default">.com</button></span>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<nav style="margin-bottom: 10px;">
+						<ul class="nav nav-tabs nav-stacked">
+							<li class="active" role="presentation"><a>Home</a></li>
+							<li  role="presentation"><a>Profile</a></li>
+							<li role="presentation"><a>wamp</a></li>
+						</ul>
+					</nav>
+				</div>
+				<div class="col-lg-12">
+					<nav style="margin-bottom: 10px;margin-top: 10px;">
+						<ul class="nav nav-pills">
+							<li class="active" role="presentation"><a>Home</a></li>
+							<li  role="presentation"><a>Profile</a></li>
+							<li role="presentation"><a>wamp</a></li>
+						</ul>
+					</nav>
+				</div>
+				<div class="col-lg-12">
+					<nav style="margin-bottom: 10px;">
+						<ul class="nav nav-pills nav-justified">
+							<li class="active" role="presentation">
+								<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+									Home
+									<span class="caret"></span>
+								</a>
+								<ul class="dropdown-menu">
+									<li>11111111111</li>
+									<li>11111111111</li>
+									<li>11111111111</li>
+								</ul>
+							</li>
+							<li  role="presentation"><a>Profile</a></li>
+							<li role="presentation"><a>wamp</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<nav class="navbar navbar-default navbar-fixed-top">
+						<div class="container-fluid">
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+									<span class="sr-only">导航</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+								<a class="navbar-brand" href="#">Brand</a>
+							</div>
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+								<ul class="nav navbar-nav">
+									<li class="active"><a href="#">Link<span class="sr-only">(current)</span></a></li>
+									<li><a>link</a></li>
+									<li class="dropdown">
+										<a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+											Dropdown<span class="caret"></span>
+										</a>
+										<ul class="dropdown-menu">
+											<li><a>Active</a></li>
+											<li><a>Active</a></li>
+											<li><a>Active</a></li>
+											<li><a>Active</a></li>
+										</ul>
+									</li>
+								</ul>
+								<form class="navbar-form navbar-left">
+									<div class="form-group">
+										<label>搜索</label>
+										<input type="text" class="form-control" />
+									</div>
+									<button class="btn btn-default">提交</button>
+								</form>
+								<ul class="nav navbar-nav navbar-right">
+									<li><a>Home</a></li>
+									<li><a>Wemd</a></li>
+									<li><a>School</a></li>
+									<li>
+										<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+											Home
+											<span class="caret"></span>
+										</a>
+										<ul class="dropdown-menu">
+											<li>Home</li>
+											<li>woird</li>
+											<li>rvzhi</li>
+											<li class="divider"></li>
+											<li>daniu</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</nav>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-10 col-lg-push-1">
+					<ol class="breadcrumb">
+						<li>Home</li>
+						<li>Libeard</li>
+						<li class="active">Wactive</li>
+					</ol>
+				</div>
+				<div class="col-lg-10">
+					<nav aria-lable="Page navigation" style="float: right;">
+						<ul class="pagination">
+							<li>
+								<a aria-lable="previous">
+									<span aria-hidden="true">&laquo;</span>
+								</a>
+							</li>
+							<li><a>1</a></li>
+							<li><a>2</a></li>
+							<li><a>3</a></li>
+							<li><a>4</a></li>
+							<li><a>5</a></li>
+							<li><a>6</a></li>
+							<li><a>7</a></li>
+							<li><a>8</a></li>
+							<li><a>共计115页</a></li>
+							<li>
+								<a aria-lable="Previous">
+									<span aria-hidden="true">&raquo;</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+					
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-10 col-lg-push-1">
+					<p>你欠费<span class="badge">5￥</span></p>
+					<a>Index <span class="badge">42</span>页</a>
+				</div>
+				<div class="col-lg-10 col-lg-push-1">
+					<ul class="nav nav-pills"role="tablist">
+						<li class="active" role="presentation"><a>Home<span class="badge">40</span></a></li>
+						<li role="presentation"><a>active<span class="badge">A</span></a></li>
+						<li role="presentation"><a>active<span class="badge">A</span></a></li>
+					</ul>
+				</div>
+				<div class="col-lg-5 col-lg-push-3">
+					<div class="jumbotron">
+						<h1>你好，世界</h1>
+						<p>精通多种语音的你好世界</p>
+						<p><a class="btn btn-info btn-lg">我也很无奈</a></p>
+					</div>
+				</div>
+				<div class="col-lg-5 col-lg-push-3">
+					<div class="thumbnail">
+						<img src="../img/11624852_152638235000_2.jpg" />
+						<div class="caption">
+							<h2>彩画</h2>
+							<p>这是一副很漂亮的画你没有见过吧</p>
+							<a class="btn btn-info btn-lg">想知道那里来的点我</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-10 col-lg-push-1">
+					<div class="alert alert-success"role="alert" ><strong>啊天</strong>我的那个天啦噜</div>
+					<div class="alert alert-warning alert-dismissable" role="alert">
+						<button class="close" type="button" data-dismiss="alert" aria-lable="Close">
+							<span aria-hidde="true">&times;</span>
+						</button>
+						<strong>我的天哪！</strong>前面为重要信息。
+					</div>
+					<div class="alert alert-info" role="alert">
+						<strong>重要信息!</strong>这只是用来看到。
+						<a class="alert-link">这才是一个链接</a>
+					</div>
+					<div class="progress">
+						<div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+							<span class="sr-only">%60 Complete</span>
+						</div>
+					</div>
+					<div class="progress">
+						<div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+							%60 Complete
+						</div>
+					</div>
+					<ul class="list-group">
+						<li class="list-group-item"><span class="badge">11</span>111111111111</li>
+						<li class="list-group-item">222222222222</li>
+						<li class="list-group-item">33333333333333</li>
+						<li class="list-group-item">444444444444</li>
+					</ul>
+					<div class="list-group">
+						<a class="list-group-item disabled">11111111111</a>
+						<a class="list-group-item active">22222222222</a>
+						<a class="list-group-item">33333333333</a>
+						<a class="list-group-item">44444444444</a>
+					</div>
+					<div class="list-group">
+						<button class="list-group-item active">111111</button>
+						<button class="list-group-item list-group-item-info">111111</button>
+						<button class="list-group-item list-group-item-success">111111</button>
+						<button class="list-group-item list-group-item-text">111111</button>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">我是头</div>
+						<div class="panel-body">我是body也就是身体</div>
+						<div class="panel-footer">我是一个尾部</div>
+					</div>
+					<p class="well">my is on test one</p>
+				</div>
+			</div>
+			
+		</div>
+		<script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="bootStrap/js/bootstrap.min.js" ></script>
+	</body>
 </html>
