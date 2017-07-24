@@ -27,6 +27,26 @@
 			    </li>
 			</ol>
 		</div>
+		
+		<div id="app-5">
+			<p>{{ message }}</p>
+			<button v-on:click="click">逆转消息</button>
+		</div>
+		
+		<div id="app-6">
+			<p>{{ text }}</p>
+			<input type="text" v-model="text" />
+		</div>
+		
+		<div id="app-7">
+			<ol>
+				<todo-item 
+					v-for="item in groceruList"
+					v-bind:todo="item"
+					v-bind:key="item.id"
+					></todo-item>
+			</ol>
+		</div>	
 		<script src="vue/vue.js"></script>
 		<script>
 			var app = new Vue({
@@ -62,7 +82,40 @@
 				}
 			})
 			
+			var app5 = new Vue({
+				el: '#app-5',
+				data: {
+					message: "Hello Vue.js"
+				},
+				methods: {
+					click: function(){
+						this.message = this.message.split('').reverse().join('')
+					}
+				}
+			})
 			
+			var app6 = new Vue({
+				el: "#app-6",
+				data: {
+					text: 'hello Vue'
+				}
+			})
+			
+			Vue.component('todo-item',{
+				props: ['todo'],
+				template: '<li>{{ todo.text }}</li>'
+			})
+			
+			var app7=new Vue({
+				el: "#app-7",
+				data: {
+					groceruList:[
+						{id:0,text:'蔬菜'},
+						{id:1,text:"苹果"},
+						{od:2,text:'土豆'}
+					]
+				}
+			});
 		</script>
 	</body>
 </html>
