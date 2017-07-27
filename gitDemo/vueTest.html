@@ -3,6 +3,13 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
+		<style>
+			.bck{background-color: #080808;width: 100px;height: 100px;}
+			.bck1{background-color: black;width: 100px;height: 100px;}
+			.bck2{background-color: red;width: 100px;height: 100px;}
+			.bck3{background: blue;width: 100px;height: 100px;}
+			.bck4{background-color: green;width: 100px;height: 100px;}
+		</style>
 	</head>
 	<body>
 		<div id="app">
@@ -43,12 +50,203 @@
 				<todo-item 
 					v-for="item in groceruList"
 					v-bind:todo="item"
-					v-bind:key="item.id"
-					></todo-item>
+					v-bind:key="item.id">
+				</todo-item>
 			</ol>
 		</div>	
+		
+		<div id="app-8">
+			<p>输出:{{message}}</p>
+			<p>输出:{{ lalala() }}</p>
+			<p>输出：{{ now }}</p>
+			<p>输出：{{ list }}</p>
+			<p>输出：{{ falst() }}</p>
+			<p>输出：{{ h }}</p>
+		</div>
+		
+		<div id="app-9">
+			{{ fullName }}
+		</div>
+		
+		<div id="app-10">
+			<p>
+				Ask a yes/no question;
+				<input type="text" v-model="question" />
+			</p>
+			<p> {{ answer }}</p>
+		</div>
+		<div id="app-11">
+			<div v-bind:class="{bck:isbck,bck1:isbck1,bck2:isbck2,bck3:isbck3}"></div>
+		</div>
+		
+		<div id="app-12">
+			<div v-bind:class="className"></div>
+		</div>
+		<my-component class="bck2 bck3"></my-component>
+		
+		<div id="app-13">
+			<p v-bind:style="{color:activeColor,fontSize:fontSize+'px',width:width+'px',height:height+'px',backgroundColor:color}">我的天哪</p>
+			<span v-bind:style="styleObj">我是有内容的</span>
+		</div>
+		
+		<div id="app-14">
+			<h1 v-if="ok">yes</h1>
+			<h1 v-else>no</h1>
+		</div>
+		
+		<div id="example01">
+			 <p v-if="male">Male</p>
+			 <p v-if="female">Female</p>
+			 <p v-if="age>25">Age:{{age}}</p>
+			 <p v-if="name.indexOf('lin')>0">Name:{{name}}</p>
+		</div>
+		
 		<script src="vue/vue.js"></script>
+		<script src="vue/axios.min.js"></script>
+		<script src="vue/lodash.min.js"></script>
 		<script>
+			var vm= new Vue({
+				 el:"#example01",
+				 data:{
+				 male:true,
+				 female: false,
+				 age:29,
+				 name:'colin'
+				 }
+			 })
+			
+			var app14 = new Vue({
+				el:"#app-14",
+				data:{
+					ok:true
+				}
+			})
+			
+			var app13 = new Vue({
+				el:"#app-13",
+				data:{
+					activeColor:"red",
+					fontSize:100,
+					width:500,
+					height:500,
+					color:"blue",
+					styleObj:{
+						color:"red",
+						fontSize:"100px",
+						backgroundColor:"green"
+					}
+				}
+				
+				
+			})
+			
+			Vue.component('my_component',{
+				template:"<p class='bck bck1'>hi</p>"
+			})
+			
+			var app12 = new Vue({
+				el:"#app-12",
+				data:{
+					className:{
+						bck:true,
+						bck3:true
+					}
+				}
+			})
+			
+			var app11=new Vue({
+				el:"#app-11",
+				data:{
+					isbck:true,
+					isbck1:true,
+					isbck2:false,
+					isbck3:true
+				}
+			})
+			
+			var app10 = new Vue({
+				el:"#app-10",
+				data:{
+					question:"",
+					answer:"我的天哪，我选no"
+				},
+				watch:{
+					question:function(newQuestion){
+						this.answer="我将呗改变",
+						this.getAnswer()
+					}
+				},
+				methods:{
+					getAnswer:_.debounce(
+						function(){
+							if(this.question.indexOf('?')===-1){
+								this.answer="搜索不到?"
+								return
+							}
+							this.answer="谢谢"
+							var vm=this
+							axios.get('https://yesno.wtf/api')
+							.then(function (response){
+								vm.answer= _.capitalize(response.data.answer);
+								console.log(response.data);
+								console.log(response.status);
+								console.log(response.statusText);
+								console.log(response.headers);
+								console.log(response.config);
+							}).catch(function(error){
+								vm.answer= "error could not reach the API"+error
+							})
+						},500
+					)
+				}
+			})
+	
+			var app9 = new Vue({
+				el:"#app-9",
+				data:{
+					firstName:"Jone",
+					lastName:"in"
+				},
+				computed: {
+				  fullName: {
+				    // getter
+				    get: function () {
+				       var str = this.firstName + ' ' + this.lastName
+				      return str
+				    },
+				    set: function (newValue) {
+				      var names = newValue.split(' ')
+				      this.firstName = names[0]
+				      this.lastName = names[names.length - 1]
+				    }
+				  }
+				}
+			})
+			
+			var app8 = new Vue({
+				el:"#app-8",
+				data:{
+					message:"Hellow",
+					h: "wodetian"
+				},
+				computed: {
+					now: function(){
+						return Date.now();
+					},
+					list: function(){
+						return "1111";
+					}
+				},
+				methods:{
+					lalala:function(){
+						return this.message+"我的天哪";
+					},
+					falst:function(){
+						return this.message+"1111";
+					}
+				}
+			})
+			
 			var app = new Vue({
 				el:"#app",
 				data:{
@@ -112,10 +310,19 @@
 					groceruList:[
 						{id:0,text:'蔬菜'},
 						{id:1,text:"苹果"},
-						{od:2,text:'土豆'}
+						{id:2,text:'土豆'}
 					]
 				}
 			});
+			
+			var vm = new Vue({
+				data:{
+					a:1
+				},
+				created:function(){
+					console.log('a is:'+this.a)
+				}
+			})
 		</script>
 	</body>
 </html>
