@@ -99,19 +99,204 @@
 			 <p v-if="female">Female</p>
 			 <p v-if="age>25">Age:{{age}}</p>
 			 <p v-if="name.indexOf('lin')>0">Name:{{name}}</p>
+			<template v-if="ok">
+				<p>第一行</p>
+				<p v-bind:class="{bck:classOk}">第二行</p>
+			</template>
+			<template v-else>
+				<p>第三行</p>
+				<p v-bind:class="{bck2:classOk}">第四行</p>
+			</template>
+			<p v-if="a==='a'">1</p>
+			<p v-else-if="a==='b'">2</p>
+			<p v-else-if="a==='c'">3</p>
 		</div>
 		
+		<ul id="app-15">
+			<li v-for="(item, index, key) in items" v-bind:class="[index%2 === 0? 'bck':'bck2',item.meach]" v-if="index%2!==0">
+				{{ item.message }}.{{ key }}.{{ index }}
+			</li>
+		</ul>
+		
+		<ul id="app-16">
+			<li v-for="(item, index, key) in items" v-bind:class="{bck2:item.www,bck1:item.cccc}">
+				{{ item.message }}.{{ key }}.{{ index }}
+			</li>
+			<div @click="onAlt" class="bck1"></div>
+		</ul>
+		
+		<div id="app-17">
+			<input type="checkbox" value="111" v-model="checkedArr" />
+			<!--<label for="111">111</label>-->
+			<input type="checkbox" value="222" v-model="checkedArr" />
+			<!--<label for="222">222</label>-->
+			<input type="checkbox" value="333" v-model="checkedArr" />
+			<!--<label for="333">333</label>-->
+			<input type="checkbox" value="444" v-model="checkedArr" />
+			<!--<label for="444">444</label>-->
+			<br />
+			<span>{{ checkedArr }}</span>
+			<p>{{ message }}</p>
+			<input type="checkbox" id="checkbox" v-model="checked">
+			<label for="checkbox">{{ checked }}</label>
+			<br />
+			<textarea v-model="message"></textarea>
+			<br />
+			<select v-model="selected" multiple>
+				<option>1111</option>
+				<option>2222</option>
+				<option>3333</option>
+			</select>
+			<span>SELECT:{{ selected }}</span>
+			<br />
+			<select v-model="selectedR" multiple>
+				<option v-for="option in options" v-bind:value="b" >
+					{{ option.text }}
+				</option>
+				
+			</select>
+			<span>SELECT:{{ selectedR }}</span>
+			<input type="checkbox" v-model="taggle"  v-bind:true-value="a" v-bind:false-value="b"/>
+			<span>{{ taggle }}</span>
+		</div>
+		<div class="zj">
+			<zs-jw></zs-jw>
+			<aa-v></aa-v>
+		</div>
+		<div id="example">
+		 <my-component></my-component>
+		 <aa-v></aa-v>
+		</div>
+		<div id="demo">
+			<chind message="hellow"></chind>
+			<chind message="+++111"></chind>
+			<input type="text" v-model="parentMsg" />
+			<v-p v-bind:my="parentMsg" ></v-p>
+			<w-div v-for="item1 in poem" :mes="item1" :time="age"></w-div>
+		</div>
 		<script src="vue/vue.js"></script>
 		<script src="vue/axios.min.js"></script>
 		<script src="vue/lodash.min.js"></script>
 		<script>
+			Vue.component('w-div',{
+				template :"<div><h2>{{title}}</h2><p>{{mes}}</p><i>{{time}}</i></div>",
+				data(){
+					return {title:'静夜思'}
+				}
+			})
+			
+			Vue.component('v-p',{
+				props:['my'],
+				template:"<p>{{my}}</p>"
+			})
+			
+			Vue.component('chind',{
+				props:['message'],
+				template:"<p>我ddddd天nnnn{{ message }}</p>"
+			})
+			
+			var demo = new Vue({
+				el:"#demo",
+				data:{
+					poem:['床前明月光','低头思故乡'],
+					age:["3306年"],
+					parentMsg:"111"
+				}
+				
+			})
+			
+			
+			
+			var MyComponent = Vue.extend({
+			 template: '<div>A custom component!{{ num }}</div>',
+			data: function(){
+				return { 
+					num:111
+				}
+			}
+			})
+			
+			var Chind = {
+				template:"<span>1111111111</span>"
+			}
+			
+			Vue.component('my-component', MyComponent)
+			
+			new Vue({
+				el: '#example',
+				components:{
+					"aa-v":Chind
+				}
+			})
+			
+			Vue.component('zs-jw',{
+				template:"<div>我其实是一个p元素表示什么呢那我告诉那好了P就是一行one Line</div>"
+			})
+			
+			
+			
+			var zj = new Vue({
+				el:".zj",
+				components:{
+					"aa-v":Chind
+				}
+			})
+			
+			var app17 = new Vue({
+				el:"#app-17",
+				data:{
+					checkedArr:[],
+					message:"wo de tian",
+					checked:true,
+					selected:[],
+					options:[
+						{text:"1111",value:"A"},
+						{text:"2222",value:"B"},
+						{text:"3333",value:"C"},
+					],
+					selectedR:["A"],
+					taggle:"",
+					a:"没被选中",
+					b:"被选中"
+				}
+			})
+			var app16 = new Vue({
+				el:"#app-16",
+				data:{
+					items:[
+						{message:"wo1111"},
+						{message:"wo2222",cccc:true}
+					]
+				},
+				methods:{
+					onAlt: function(){
+						alert(this.items[0].message)
+					}
+				}
+			})
+			
+			var app15 = new Vue({
+				el: "#app-15",
+				data: {
+					items:[
+						{message: "1111",meach:"bw"},
+						{message: "2222",meach:"wodetianna"},
+						{message: "333",meach:"bd"}
+					],
+					cla:true
+				}
+			})
+			
 			var vm= new Vue({
 				 el:"#example01",
 				 data:{
 				 male:true,
 				 female: false,
 				 age:29,
-				 name:'colin'
+				 name:'colin',
+				 ok:false,
+				 classOk:true,
+				 a:'c'
 				 }
 			 })
 			
