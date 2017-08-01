@@ -3,12 +3,41 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
+		<link href="https://unpkg.com/animate.css@3.5.1/animate.min.css" rel="stylesheet" type="text/css">
 		<style>
 			.bck{background-color: #080808;width: 100px;height: 100px;}
 			.bck1{background-color: black;width: 100px;height: 100px;}
 			.bck2{background-color: red;width: 100px;height: 100px;}
 			.bck3{background: blue;width: 100px;height: 100px;}
 			.bck4{background-color: green;width: 100px;height: 100px;}
+			.slide-fade-enter-active {
+				transition: all .3s ease;
+			}
+			.slide-fade-leave-active {
+				transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+			}
+			.slide-fade-enter, .slide-fade-leave-to
+			/* .slide-fade-leave-active for below version 2.1.8 */ {
+				transform: translateX(10px);
+				opacity: 0;
+			}
+			.bounce-enter-active {
+			  animation: bounce-in .5s;
+			}
+			.bounce-leave-active {
+			  animation: bounce-in .5s reverse;
+			}
+			@keyframes bounce-in {
+			  0% {
+			    transform: scale(0);
+			  }
+			  50% {
+			    transform: scale(1.5);
+			  }
+			  100% {
+			    transform: scale(1);
+			  }
+			}
 		</style>
 	</head>
 	<body>
@@ -170,19 +199,201 @@
 		<div id="demo">
 			<chind message="hellow"></chind>
 			<chind message="+++111"></chind>
-			<input type="text" v-model="parentMsg" />
 			<v-p v-bind:my="parentMsg" ></v-p>
-			<w-div v-for="item1 in poem" :mes="item1" :time="age"></w-div>
+			<input type="text" v-model="parentMsg" />
+			<wsd message="我就是传给儿子的"></wsd>
+			<w-d  s="111"  t="w" >
+				<w-v></w-v>
+			</w-d>
+		</div>
+		<div id="app-18">
+			<p>{{ tolal }}</p>
+			<w-button v-on:zidingyi="demo"></w-button>
+			<w-button v-on:zidingyi="demo"></w-button>	
+		</div>
+		
+		<div id="app-19">
+			<father-component2></father-component2>
+		</div>
+		
+		<div class="app-20">
+			<child scope="props">
+				<slot text = "我的天哪"></slot>
+			</child>
+		</div>
+		
+		<div class="app-21">
+			<father-component3></father-component3>
+		</div>
+		
+		<!--<div id="app-22">
+			<a @click="huan(table1)">第一个</a>
+			<a @click="huan(table2)">第二个</a>
+			<p>
+				<component :is="table3" keep-alive></component>
+			</p>
+		</div>-->
+		
+		
+		<div id="example-1">
+		  <button @click="show = !show">
+		    Toggle render
+		  </button>
+		  <transition name="slide-fade">
+		    <p v-if="show">hello</p>
+		  </transition>
+		</div>
+		
+		<div id="example-2">
+		  <button @click="show = !show">Toggle show</button>
+		  <transition name="bounce">
+		    <p v-if="show">Look at me!</p>
+		  </transition>
+		</div>
+		
+		<div id="example-3">
+		  <button @click="show = !show">
+		    Toggle render
+		  </button>
+		  <transition
+		    name="custom-classes-transition"
+		    enter-active-class="animated tada"
+		    leave-active-class="animated bounceOutRight"
+		  >
+		    <p v-if="show">hello</p>
+		  </transition>
 		</div>
 		<script src="vue/vue.js"></script>
 		<script src="vue/axios.min.js"></script>
 		<script src="vue/lodash.min.js"></script>
 		<script>
-			Vue.component('w-div',{
-				template :"<div><h2>{{title}}</h2><p>{{mes}}</p><i>{{time}}</i></div>",
-				data(){
-					return {title:'静夜思'}
+			new Vue({
+			  el: '#example-3',
+			  data: {
+			    show: true
+			  }
+			})
+			
+			new Vue({
+			  el: '#example-2',
+			  data: {
+			    show: true
+			  }
+			})
+			
+			var exam = new Vue({
+			  el: '#example-1',
+			  data: {
+			    show: true
+			  }
+			})
+			
+			
+			
+//			var app22 = new Vue({
+//				el:"#app-22",
+//				data:{
+//					table1:"文本1",
+//					table2:"文本2",
+//					table3:"文本1"
+//				},
+//				methods:{
+//					huan:function(table){
+//						this.table3 = table
+//					}
+//				}
+//			})
+			
+			Vue.component('charl-component3',{
+				template:"<ul>"+
+				"<slot name='chind-ul' v-for='item in frult' v-bind:text='item.name'>?</slot>"+
+				"</ul>",
+				data:function (){
+					return {
+						frult:[
+						{name:'apple'},
+						{name:'banana'},
+						{name:'per'}
+						]
+					}
+				},
+			})
+			
+			Vue.component('father-component3',{
+				template:"<charl-component3>"+
+				"<template scope='props' slot='chind-ul'>"+
+					"<li>{{props.text}}</li>"+
+				"</template>"+
+			"</charl-component3>"
+			})
+			
+			var app21 = new Vue({
+				el:'.app-21'
+			})
+			
+			Vue.component('child',{
+				props:['props'],
+				template:"<span>{{props.text}}</span>"
+			})
+			
+			var app20 = new Vue({
+				el:".app-20"
+			})
+			
+			Vue.component('child-component2',{
+			   template:'<div class="child"><h4>大家好我是子组件</h4>' +
+			   '<header>' +
+			   '<slot name="header"></slot>' +
+			   '</header>' +
+			   '<main><slot name="main"></slot></main>' +
+			   '<footer><slot></slot></footer>' +
+			   '</div>'
+			});
+			
+			Vue.component('father-component2',{
+			   template:'<div class="father"><h2>大家好我是父组件</h2>' +
+			   '<child-component2>' +
+			   '<h3 slot="header">我会被分发到header吗？</h3>' +
+			   '<h4 slot="main">我会被分发到main吗？</h4>' +
+			   '<h5>我会被分发到footer吗，我没有指定slot</h5>' +
+			   '</child-component2>' +
+			   '</div>'
+			});
+			
+			var app19 = new Vue({
+				el:"#app-19",	
+			})
+			
+			
+			Vue.component('w-button',{
+				template:"<button v-on:click='w111'>{{ count }}</button>",
+				data:function(){
+					return{
+						count:0
+					}
+				},
+				methods:{
+					w111:function(){
+						this.count+=1
+						this.$emit('zidingyi')
+					}
 				}
+			})
+			
+			var app18= new Vue({
+				el:"#app-18",
+				data:{
+					tolal:0
+				},
+				methods:{
+					demo:function (){
+						this.tolal += 1
+					}
+				}
+			})
+			
+			Vue.component('w-v',{
+				template:"<p>我的天哪</p>"
 			})
 			
 			Vue.component('v-p',{
@@ -195,17 +406,41 @@
 				template:"<p>我ddddd天nnnn{{ message }}</p>"
 			})
 			
+			Vue.component('wsd',{
+				props:['message'],
+				computed:{
+					message1: function () {
+  					return test(this.message)
+  				  }
+				},
+				template:"<div><p>{{message1}}</p></div>"
+			})
+			
+			Vue.component('w-d',{
+				props:{
+					't':{
+						type:Number,
+						default:1000
+					},
+					's':{
+						type:String,
+						default:true
+					}
+				},
+				template:"<div><p>{{t}}</p><p>{{s}}</p><slot></slot></div>"
+			})
 			var demo = new Vue({
 				el:"#demo",
 				data:{
-					poem:['床前明月光','低头思故乡'],
-					age:["3306年"],
-					parentMsg:"111"
+					parentMsg:"",
 				}
 				
 			})
 			
-			
+			function test(str){
+				var data = str+"返回值111";
+				return data;
+			}
 			
 			var MyComponent = Vue.extend({
 			 template: '<div>A custom component!{{ num }}</div>',
