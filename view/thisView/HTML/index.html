@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title></title>
+		<link rel="stylesheet" href="../../layui/css/layui.css" />
+		<link rel="stylesheet" href="../CSS/index.css" />
+	</head>
+	<body>
+		<header id="header">
+			<img src="../../../layuiTest/layui-v1.0.9_rls/layui/images/face/21.gif" />
+			<div class="headerTop">
+				<ul>
+					<li><span>坐席状态</span><button class="layui-btn layui-btn-normal layui-btn-small" onclick="callStatus(this)">空闲</button></li>
+					<li><span>通话状态</span></li>
+					<li><button class="layui-btn layui-btn-normal layui-btn-small">通话中</button></li>
+					<li><button class="layui-btn layui-btn-normal layui-btn-small" >已挂断</button></li>
+					<li><button class="layui-btn layui-btn-normal layui-btn-small" >呼叫中</button></li>
+				</ul>
+			</div>
+			<div class="headerButtom">
+				<ul>
+					<li>尊敬的李某某：您好！</li>
+					<li>您的工号：822。</li>
+					<li>您当前的状态：示忙。</li>
+					<li>您的身份：会员。</li>
+					<li>您的部门：销售部三组。</li>
+					<li>使用分机：SIP/822</li>
+					<li>当前日期：2017年8月5日星期2。</li>
+				</ul>
+			</div>
+		</header>
+		<div class="sidebar" id="sidebar">
+			<ul class="layui-nav layui-nav-tree" lay-filter="demo"style="width: 100%;">
+			  <li class="layui-nav-item " >
+			    <a href="javascript:;">话务管理</a>
+			    <dl class="layui-nav-child">
+			      <dd><a href="javascript:;">通话记录</a></dd>
+			      <dd><a href="javascript:;">转移设置</a></dd>
+			      <dd><a href="javascript:;">坐席设置</a></dd>
+			    </dl>
+			  </li>
+			  <li class="layui-nav-item">
+			    <a href="javascript:;">客户管理</a>
+			    <dl class="layui-nav-child">
+			      <dd><a href="">客户列表</a></dd>
+			      <dd><a href="">公海客户</a></dd>
+			      <dd><a href="">预约客户</a></dd>
+			      <dd><a href="">资料管理</a></dd>
+			      <dd><a href="">代办客户</a></dd>
+			    </dl>
+			  </li>
+			  <li class="layui-nav-item">
+			  	<a href="javascript:;">商品管理</a>
+			    <dl class="layui-nav-child">
+			      <dd><a href="">商品列表</a></dd>
+			      <dd><a href="">商品列表</a></dd>
+			    </dl>
+			  </li>
+			  <li class="layui-nav-item">
+			  	<a href="javascript:;">订单管理</a>
+			    <dl class="layui-nav-child">
+			      <dd><a href="">我的订单</a></dd>
+			      <dd><a href="">全部订单</a></dd>
+			      <dd><a href="">待审订单</a></dd>  
+			      <dd><a href="">已审订单</a></dd>
+			      <dd><a href="">未审订单</a></dd>
+			      <dd><a href="">打回订单</a></dd>
+			    </dl></li>
+			</ul>
+		</div>
+		<div class="sidebar-button" id="sidButton">
+			<img src="../../img/index/bar_close.gif" />
+		</div>
+		<footer id="footer">
+			<p>verycc智能通话系统</p>
+		</footer>
+		<script src="../../layui/layui.js"></script>
+		<script src="../JS/index.js"></script>
+		<script>
+			layui.use('element', function(){
+			  var element = layui.element(); //导航的hover效果、二级菜单等功能，需要依赖element模块
+			  
+			  //监听导航点击
+			  element.on('nav(demo)', function(elem){
+			    //console.log(elem)
+			    layer.msg(elem.text());
+			  });
+			});
+		</script>
+	</body>
+</html>

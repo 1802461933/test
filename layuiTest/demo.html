@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title></title>
+		<link rel="stylesheet" href="layui-v1.0.9_rls/layui/css/layui.css" />
+		<style>
+			.test{background-color: red;}
+		</style>
+	</head>
+	<body>
+		
+		<div id="pageDemo"></div>
+		<textarea id="demo" style="display: none;"></textarea>
+		<div style="border: 1px solid black; width: 500px;height: 500px; margin: 0 auto;" class="test" id="mydiv" lay-filter="mydiv"> </div>
+		<button class="layui-btn" lay-submit lay-filter="login">登入</button> 
+		<!--<input onclick="layui.laydate()">-->
+		<form class="layui-form"> <!-- 提示：如果你不想用form，你可以换成div等任何一个普通元素 -->
+		  <div class="layui-form-item">
+		    <label class="layui-form-label">输入框</label>
+		    <div class="layui-input-block">
+		      <input type="text" name="" placeholder="请输入" autocomplete="off" class="layui-input">
+		    </div>
+		  </div>
+		  <div class="layui-form-item">
+		    <label class="layui-form-label">下拉选择框</label>
+		    <div class="layui-input-block">
+		      <select name="interest" lay-filter="aihao" lay-search>
+		      	 <option value=""></option>
+		        <option value="0">北京</option>
+		        <option value="1">上海</option>
+		        <option value="2">广州</option>
+		        <option value="3">深圳</option>
+		        <option value="4">杭州</option>
+		      </select>
+		    </div>
+		  </div>
+		  <div class="layui-form-item">
+		    <label class="layui-form-label">复选框</label>
+		    <div class="layui-input-block">
+		      <input type="checkbox" name="like[write]" title="写作">
+		      <input type="checkbox" name="like[read]" title="阅读">
+		    </div>
+		  </div>
+		  <div class="layui-form-item">
+		    <label class="layui-form-label">开关关</label>
+		    <div class="layui-input-block">
+		      <input type="checkbox" lay-skin="switch">
+		    </div>
+		  </div>
+		  <div class="layui-form-item">
+		    <label class="layui-form-label">开关开</label>
+		    <div class="layui-input-block">
+		      <input type="checkbox" checked lay-skin="switch">
+		    </div>
+		  </div>
+		  <div class="layui-form-item">
+		    <label class="layui-form-label">单选框</label>
+		    <div class="layui-input-block">
+		      <input type="radio" name="sex" value="0" title="男">
+		      <input type="radio" name="sex" value="1" title="女" checked>
+		    </div>
+		  </div>
+		  <div class="layui-form-item layui-form-text">
+		    <label class="layui-form-label">请填写描述</label>
+		    <div class="layui-input-block">
+		      <textarea placeholder="请输入内容" class="layui-textarea"></textarea>
+		    </div>
+		  </div>
+		  <div class="layui-form-item">
+ 
+		  <div class="layui-inline">
+		    <label class="layui-form-label">范围</label>
+		    <div class="layui-input-inline" style="width: 100px;">
+		      <input type="text" name="price_min" placeholder="￥" autocomplete="off" class="layui-input">
+		    </div>
+		    <div class="layui-form-mid">-</div>
+		    <div class="layui-input-inline" style="width: 100px;">
+		      <input type="text" name="price_max" placeholder="￥" autocomplete="off" class="layui-input">
+		    </div>
+		  </div>
+		  
+		  <div class="layui-inline">
+		    <label class="layui-form-label">密码</label>
+		    <div class="layui-input-inline" style="width: 100px;">
+		      <input type="password" name="" autocomplete="off" class="layui-input">
+		    </div>
+		  </div>
+		  
+		</div>
+		  <div class="layui-form-item">
+		    <div class="layui-input-block">
+		      <button class="layui-btn" lay-submit lay-filter="*">立即提交</button>
+		      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+		    </div>
+		  </div>
+		  <!-- 更多表单结构排版请移步文档左侧【页面元素-表单】一项阅览 -->
+		</form>	
+		<div class="layui-tab layui-tab-card">
+		  <ul class="layui-tab-title">
+		    <li class="layui-this">网站设置</li>
+		    <li>用户管理</li>
+		    <li>权限分配</li>
+		    <li>商品管理</li>
+		    <li>订单管理</li>
+		  </ul>
+		  <div class="layui-tab-content" style="height: 100px;">
+		    <div class="layui-tab-item layui-show">1</div>
+		    <div class="layui-tab-item">2</div>
+		    <div class="layui-tab-item">3</div>
+		    <div class="layui-tab-item">4</div>
+		    <div class="layui-tab-item">5</div>
+		    <div class="layui-tab-item">6</div>
+		  </div>
+		</div>
+		<table class="layui-table">
+		  <colgroup>
+		    <col width="150">
+		    <col width="200">
+		    <col width="300">
+		    <col>
+		  </colgroup>
+		  <thead>
+		    <tr>
+		      <th>昵称</th>
+		      <th>加入时间</th>
+		      <th>签名</th>
+		      <th>感悟</th>
+		    </tr> 
+		  </thead>
+		  <tbody>
+		    <tr>
+		      <td>贤心</td>
+		      <td>2016-11-29</td>
+		      <td>人生就像是一场修行</td>
+		      <td>向来缘深，奈何缘浅</td>
+		    </tr>
+		    <tr>
+		      <td>贤心</td>
+		      <td>2016-11-29</td>
+		      <td>人生就像是一场修行</td>
+		      <td>我本将心付明月，奈何明月照沟渠</td>
+		    </tr>
+		  </tbody>
+		</table>
+		<div class="layui-collapse"  lay-accordion>
+		  <div class="layui-colla-item">
+		    <h2 class="layui-colla-title">杜甫</h2>
+		    <div class="layui-colla-content ">内容区域</div>
+		  </div>
+		  <div class="layui-colla-item">
+		    <h2 class="layui-colla-title">李清照</h2>
+		    <div class="layui-colla-content ">内容区域</div>
+		  </div>
+		  <div class="layui-colla-item">
+		    <h2 class="layui-colla-title">鲁迅</h2>
+		    <div class="layui-colla-content ">内容区域</div>
+		  </div>
+		</div>
+		<blockquote class="layui-elem-quote">引用区域的文字</blockquote>
+		<iframe src="demo.html" width="800px" height="800px"></iframe>
+		<script src="layui-v1.0.9_rls/layui/layui.js"></script>
+		<!--<script src="config.js"></script>-->
+		<script>
+//			layui.define(function(exports){
+//			  exports('demo', function(){
+//			    alert('Hello World!');
+//			  });
+//			},['layer', 'laypage']);
+			//layui.demo();
+			layui.use('element',function(){
+				var element = layui.element(); 
+			})
+			
+			layui.use(['laypage', 'layedit'], function(){
+			  var laypage = layui.laypage
+			  ,layedit = layui.layedit;
+			  
+			  //do something
+			});
+    		layui.use(['laypage', 'layedit'], function(laypage, layedit){
+			  //使用分页
+			  laypage({
+			    cont: 'pageDemo' //分页容器的id
+			    ,pages: 100 //总页数
+			    ,skin: '#5FB878' //自定义选中色值
+			    //,skip: true //开启跳页
+			    ,jump: function(obj, first){
+			      if(!first){
+			        layer.msg('第'+ obj.curr +'页');
+			      }
+			    }
+			  });
+			  //建立编辑器
+			  layedit.build('demo');
+			});
+			//调用自定义的模块
+			layui.config({base: 'res/js/modules/'}).use('index');
+//			layui.index();
+			
+			//添加h5缓存
+			layui.data('test',{
+				key:"name",
+				value:"闲怂"
+			});
+			//添加h5缓存
+			layui.data('test',{
+				key:"val",
+				value:"闲怂"
+			});
+			//更改
+			layui.data('test',{
+				key:"val",
+				value:"闲怂啊"
+			});
+			//清除name
+			layui.data('test',{
+				key:"name",
+				remove:true
+			});
+			
+			//layui.data('test',null); // 清空test
+			var data = layui.data('test');
+			console.log(data);
+			
+			//获得当前在使用的用户设备信息 包括操作系统  是否是ie浏览器
+			var device = layui.device();
+			console.log(device);
+			//获得当前相关一些配置信息
+			console.log(layui.cache);
+			//获得dom元素的style样式
+			var bak = layui.getStyle(document.getElementById('mydiv'),'background');
+			console.log(bak);
+			
+//			document.getElementById('mydiv').onclick = function(){
+//				alert(111);
+//			};
+			
+			layui.onevent('mydiv', 'click', function(){alert(222);});
+		</script>
+	</body>
+</html>
