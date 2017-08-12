@@ -76,12 +76,13 @@ header img{
 	overflow: auto;
 }
 .content-header{
+	margin-top: 10px;
 	padding-top:2px ;
-	height: 200px;
-	width: 100%;
+	height: auto;
+	width: 99%;
 }
  .layui-inline{
- 	margin-right: 100px!important;
+ 	margin-right: 80px!important;
  }
  .selectBtn{
  	margin-right: 20px;
@@ -90,7 +91,6 @@ header img{
  .fromSenior{
  	width: 100%;
  	height: 200px;
- 	display: block;
  }
 footer{
 	position:fixed; 

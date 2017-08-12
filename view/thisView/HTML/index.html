@@ -157,8 +157,44 @@
 					    			<option></option>
 					    		</select>
 					    	</div>
+						    <div class="layui-inline" style="margin-left: 6.3%;">
+						      <label class="layui-form-label">客户类型</label>
+						      <div class="layui-input-inline">
+						        <input type="tel" name="phone" lay-verify="phone" autocomplete="off" class="layui-input">
+						      </div>
+						    </div>
 					    </div>
+					    <div class="layui-form-item">
+					    	<label class="layui-form-label">号码归属</label>
+					    	<div class="layui-input-inline">
+					    		<select name="sheng" id="sheng">
+					    			<option></option>
+					    		</select>
+					    	</div>
+					    	<div class="layui-input-inline">
+					    		<select name="shi" id="shi">
+					    			<option></option>
+					    		</select>
+					    	</div>
+						    <div class="layui-inline" style="margin-left:22.7%;">
+						      <label class="layui-form-label">标签类型</label>
+						      <div class="layui-input-inline">
+						        <input type="tel" name="phone" lay-verify="phone" autocomplete="off" class="layui-input">
+						      </div>
+						    </div>
+					    </div>
+					    <div class="layui-form-item">
+					    	<label class="layui-form-label">添加时间</label>
+						      <div class="layui-input-inline">
+						        <input type="text" name="date" id="startDate"  class="layui-input"onclick="tiemday(this);">
+						      </div>
+						      <div class="layui-form-mid">-</div>
+						      <div class="layui-input-inline" >
+							      <input type="text" name="date" id="endDate"  class="layui-input" onclick="layui.laydate({elem: this,format: 'YYYY-MM-DD hh:mm:ss'})">
+							  </div>
 						</div>
+					</div>
+						
 					</div>
 					<div class="selectBtn">
 						<div class="layui-btn" onclick="hiddenFromSenior(this)">高级搜索</div> 
@@ -184,9 +220,12 @@
 		<script src="../../layui/lay/dest/layui.all.js"></script>
 		<script src="../../layui/lay/modules/form.js"></script>
 		<script src="../JS/index.js"></script>
-		<script src="../JS/RegionalLinkage.js"></script>
+		<script src="../JS/ThreeRegionalLinkage.js"></script>
+		<script src="../JS/TwoRegionalLinkage.js"></script>
 		<script>
 			pca.init('select[name=P1]', 'select[name=C1]', 'select[name=A1]',);
+			_init_area();
+			
 		</script>
 	</body>
 </html>
