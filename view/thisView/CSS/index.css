@@ -79,7 +79,19 @@ header img{
 	margin-top: 10px;
 	padding-top:2px ;
 	height: auto;
-	width: 99%;
+	width: 100%;
+	background-color: #f2f2f2;
+	float: left;
+	padding-bottom: 10px;
+	margin-bottom: 20px;
+}
+.queryHeader{
+	width: 100%;
+	height: 40px;
+	font-size: 20px;
+	line-height: 40px;
+	background-color: #F9F2F4;
+	
 }
  .layui-inline{
  	margin-right: 2%!important;
@@ -87,10 +99,12 @@ header img{
  .selectBtn{
  	margin-right: 20px;
  	float: right;
+ 	clear: both;
  }
  .fromSenior{
  	width: 100%;
- 	height: 200px;
+ 	height: 140px;
+ 	
  }
 footer{
 	position:fixed; 

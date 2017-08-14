@@ -46,7 +46,7 @@ function callStatus(btn){
 function hiddenFromSenior(){
 	var fromSeniorHeight = document.getElementById("fromSenior").offsetHeight;
 	if( fromSeniorHeight == 0){
-		document.getElementById("fromSenior").style.height = 200 + "px";
+		document.getElementById("fromSenior").style.height = 140 + "px";
 		document.getElementById("fromSenior").style.display = "block";
 	}else{
 		document.getElementById("fromSenior").style.height = 0 + "px";
