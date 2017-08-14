@@ -46,11 +46,11 @@ header img{
 }
 .headerButtom ul {
 	list-style: none;
-	margin-left: 10px;
+	margin-left:10px;
 }
 .headerButtom ul li{
 	float: left;
-	margin-right: 20px;
+	margin-right: 1%;
 	line-height: 200%;
 	color: black;
 }
@@ -82,7 +82,7 @@ header img{
 	width: 99%;
 }
  .layui-inline{
- 	margin-right: 80px!important;
+ 	margin-right: 2%!important;
  }
  .selectBtn{
  	margin-right: 20px;
