@@ -23,7 +23,6 @@
 				<ul>
 					<li>尊敬的李某某：您好！</li>
 					<li>您的工号：822。</li>
-					<li>您当前的状态：示忙。</li>
 					<li>您的身份：会员。</li>
 					<li>您的部门：销售部三组。</li>
 					<li>使用分机：SIP/822</li>
@@ -157,7 +156,7 @@
 					    			<option></option>
 					    		</select>
 					    	</div>
-						    <div class="layui-inline" style="margin-left: 6.3%;">
+						    <div class="layui-inline" style="margin-left: -3%;">
 						      <label class="layui-form-label">客户类型</label>
 						      <div class="layui-input-inline">
 						        <input type="tel" name="phone" lay-verify="phone" autocomplete="off" class="layui-input">
@@ -176,7 +175,7 @@
 					    			<option></option>
 					    		</select>
 					    	</div>
-						    <div class="layui-inline" style="margin-left:22.7%;">
+						    <div class="layui-inline" style="margin-left:13.5%;">
 						      <label class="layui-form-label">标签类型</label>
 						      <div class="layui-input-inline">
 						        <input type="tel" name="phone" lay-verify="phone" autocomplete="off" class="layui-input">
@@ -223,6 +222,7 @@
 		<script src="../JS/ThreeRegionalLinkage.js"></script>
 		<script src="../JS/TwoRegionalLinkage.js"></script>
 		<script>
+			alert(document.getElementById("header").offsetWidth);
 			_init_area();
 			pca.init('select[name=P1]', 'select[name=C1]', 'select[name=A1]',);
 		</script>
