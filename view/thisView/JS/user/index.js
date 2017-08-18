@@ -2,14 +2,9 @@ var footer = document.getElementById("footer");
 var header = document.getElementById("header");
 var sid = document.getElementById("sidebar");
 var sidButton = document.getElementById("sidButton");
-var heigth = footer.offsetTop - header.offsetHeight ;
 var butimg = sidButton.firstElementChild;
 var nav = document.getElementById('nav');
 var content = document.getElementById("content");
-butimg.style.marginTop = heigth / 2.2 + "px";
-sid.style.height = heigth+ "px";
-sidButton.style.height = heigth+ "px";
-content.style.height = heigth + "px";
 console.log(content.offsetLeft);
 sid.style.marginTop = header.offsetHeight;
 sidButton.style.marginTop = header.offsetHeight+"px";			
@@ -21,12 +16,12 @@ var sidWidth = sid.offsetWidth;
 		sid.style.width = 187+"px";
 		this.src="../../img/index/bar_close.gif";
 		nav.style.display="block";
-		content.style.width="86.5%";
+		content.style.width="85%";
 	}else{
 			nav.style.display="none";
 			sid.style.width = 0 + "px"; 
 			this.src = "../../img/index/bar_right.gif";
-			content.style.width="99.5%";
+			content.style.width="99%";
 		}
 	}
 
@@ -36,7 +31,7 @@ function callStatus(btn){
 		btn.style.backgroundColor="#FF5722";
 		btn.innerText="示忙";
 	}else{
-		btn.style.backgroundColor="#1E9FFF";
+		btn.style.backgroundColor="#009688";
 		btn.innerText="空闲";
 	}
 	
@@ -60,3 +55,27 @@ function tiemday(btn){
 	btn.value=laydate.now(-30, 'YYYY-MM-DD hh:mm:ss');
 	
 }
+
+function autodivheight(){ //函数：获取尺寸
+    //获取浏览器窗口高度
+    var winHeight=0;
+    if (window.innerHeight){
+        winHeight = window.innerHeight;
+    }
+    else if ((document.body) && (document.body.clientHeight)){
+        winHeight = document.body.clientHeight;
+    }
+    if (document.documentElement && document.documentElement.clientHeight){
+        winHeight = document.documentElement.clientHeight;
+    }
+    document.getElementById("sidebar").style.height= winHeight-65+"px";
+    sidButton.style.marginTop=winHeight/2.6+"px";
+    document.getElementById("content").style.height= winHeight-70 +"px";
+}
+autodivheight();
+
+$(".layui-nav-item").on('click',function(){
+	$(this).siblings().removeClass('layui-nav-itemed');
+});
+
+
