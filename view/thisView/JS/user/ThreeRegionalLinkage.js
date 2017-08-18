@@ -21,7 +21,7 @@
 		  	$(city).html('');
 		  	$(city).append('<option>全部</option>');
 		  	if(cs){
-				cs = cs.city;  		
+				cs = cs.city;
 				for(var i in cs){
 					$(city).append('<option>'+cs[i].name+'</option>');
 					pca.ckeys[cs[i].name] = cs[i];
