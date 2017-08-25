@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<title>客户列表</title>
+		<title>公海客户</title>
 		<link rel="stylesheet" href="../../../layui/css/layui.css" />
 		<link rel="stylesheet" href="../../CSS/user/index.css" />
 	</head>
@@ -73,292 +73,6 @@
 			<img src="../../../img/user/index/bar_close.gif" />
 		</div>
 		<div class="mask" class="mask"></div>
-		<div id="adduser" class="adduser">
-			<table class="layui-table" >
-			  <!--<colgroup>
-			    <col width="200">
-			    <col width="200">
-			    <col width="200">
-			    <col width="200">
-			  </colgroup>-->
-			  <thead>
-			    <tr>
-			      <th>基本信息</th>
-			      <th>联系方式<span class="addTable" onclick="addHtmlPhone()"><img src="../../../img/user/index/Plus.png"/></span></th>
-			      <th>地址<span class="addTable" onclick="addHtmlress()"><img src="../../../img/user/index/Plus.png"/></span></th>
-			      <th>标签
-			      	<span class="userBtn">
-			      		<button class="layui-btn layui-btn-primary layui-btn-small">提交</button>
-			      		<button class="layui-btn layui-btn-primary layui-btn-small" onclick="closeAddUser()">关闭</button>
-			      	</span>
-			      </th>
-			    </tr> 
-			  </thead>
-			  <tbody>
-			    <tr>
-			      <td class="addUser">
-					   <div class="layui-form-item">
-					    <label class="layui-form-label">姓名</label>
-					    <div class="layui-input-block">
-					      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入用户姓名" class="layui-input">
-					    </div>
-					  </div>
-					  
-					   <div class="layui-form-item">
-					    <label class="layui-form-label">添加人</label>
-					    <div class="layui-input-block">
-					      <input type="text" name="title" lay-verify="title" autocomplete="off" value="801" class="layui-input">
-					    </div>
-					  </div>
-					  
-					   <div class="layui-form-item">
-					    <label class="layui-form-label">年龄</label>
-					    <div class="layui-input-block">
-					      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入用户年龄" class="layui-input">
-					    </div>
-					  </div>
-					  
-					    <div class="layui-form-item">
-						    <label class="layui-form-label">单选框</label>
-						    <div class="layui-input-block">
-						    	<div class="checkSex">
-						    		<span class="checkMale">男：</span>
-						      		<span class="pay_list_c1 on">
-						      			<input type="radio" name="sex" value="男" title="男" checked=""  class="radioclass">
-						      		</span>
-						      		<span class="checxFemale">女：</span>
-						      		<span class="pay_list_c1">
-						      			<input type="radio" name="sex" value="女" title="女"  class="radioclass">
-						    		</span>
-						    	</div>
-						    </div>
-						</div>
-											 
-					    <div class="layui-input-item">
-					    <form name="form1">
-					      <label class="layui-form-label addmargin" style="padding-left: 0;">号码归属</label>
-					    	<div class="layui-input-inline addmargin addAscription">
-					    		<select name="selectp" onChange="selectcityarea('selectp','selectc','form1');" >
-					    			<option>选择省</option>
-					    		</select>
-					    	</div>
-					    	<div class="layui-input-inline assignment addmargin addAscription" lay-filter="city">
-					    		<select name="selectc">
-					    			<option>选择市</option>
-					    		</select>
-					    	</div>
-					    </form>
-					    </div>
-					     <div class="layui-form-item layui-form-text">
-						    <label class="layui-form-label">客户备注</label>
-						    <div class="layui-input-block">
-						      <textarea placeholder="请输入内容" class="layui-textarea"></textarea>
-						    </div>
-						  </div>
-			      </td>
-			      
-			      <td class="addUserPhone">
-			      	<form name="forms" id="form">
-			      	 <div class="layui-form-item">
-					    <div class="layui-inline">
-					      <label class="layui-form-label">联系方式</label>
-					      <div class="layui-input-inline">
-					        <input type="tel" name="phone" lay-verify="phone" autocomplete="off" class="layui-input">
-					      </div>
-					    </div>
-					    <div class="layui-input-item">
-					    
-					      <label class="layui-form-label addmargin" style="padding-left: 0;">号码归属</label>
-					        <div class="addAscription">
-					    		<select name="selectsheng" onChange="selectcityarea('selectsheng','selectcity','forms');" >
-					    			<option>选择省</option>
-					    		</select>
-					    		<select name="selectcity">
-					    			<option>选择市</option>
-					    		</select>
-					    	</div>
-					    
-					    </div>
-					  </div>
-			      	</form>
-			      </td>
-			      
-			      <td class="addressHtml">
-			      	 <div class="layui-form-item layui-form-text">
-					    <!--<label class="layui-form-label">地址</label>-->
-					    <div class="layui-input-block ressText">
-					      <textarea placeholder="请输入地址" class="layui-textarea"></textarea>
-					    </div>
-					</div>
-			      </td>
-			      <td class="tdHover">
-			      	<div id="Label1" >
-						<div class="layui-tab">
-							<ul class="layui-tab-title" id="moreUl">
-								 <li class="layui-this">已选标签</li>
-								 <li>客户标签  </li>
-								 <br />
-								 <li>商品标签</li>
-								 <li>沟通标签</li>
-								 <br />
-								 <li>其他标签</li>
-								 <li>其他标签</li>
-								 <i class="bgmarrow" onclick="moreUlH(this)"></i>
-							</ul>
-							
-							<div class="layui-tab-content">
-							<div class="layui-tab-item layui-show default">
-								 <ul class="defaultUl">
-								 	<li>
-								 		<span class="userLable tableBck">土豪客户</span>
-								 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="delTable(this)">删除</button>
-								 	</li>
-								 	<li>
-								 		<span class="orderLable tableBck">有意向</span>
-								 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="delTable(this)">删除</button>
-								 	</li>
-								 	<li>
-								 		<span class="userLable tableBck">需要购买</span>
-								 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="delTable(this)">删除</button>
-								 	</li>
-								 	<li>
-								 		<span class="orderLable tableBck">很麻烦</span>
-								 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="delTable(this)">删除</button>
-								 	</li>
-								 	<li>
-								 		<span class="CommunicateLable tableBck">不接电话</span>
-								 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="delTable(this)">删除</button>
-								 	</li>
-								 	<li>
-								 		<span class="otherLable tableBck">放弃治疗</span>
-								 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="delTable(this)">删除</button>
-								 	</li>
-								 </ul>
-							</div>
-							<div class="layui-tab-item default">
-								 <ul>
-								 	<li>
-								 		<span class="userLable tableBck">土豪客户</span>
-								 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
-								 	</li>
-								 	<li>
-								 		<span class="userLable tableBck">有意向</span>
-								 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
-								 	</li>
-								 	<li>
-								 		<span class="userLable tableBck">需要购买</span>
-								 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
-								 	</li>
-								 	<li>
-								 		<span class="userLable tableBck">很麻烦</span>
-								 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
-								 	</li>
-								 	<li>
-								 		<span class="userLable tableBck">不接电话</span>
-								 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
-								 	</li>
-								 	<li>
-								 		<span class="userLable tableBck">放弃治疗</span>
-								 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
-								 	</li>
-								 </ul>
-							</div>
-							<div class="layui-tab-item default">
-								 <ul>
-								 	<li>
-								 		<span class="orderLable tableBck">土豪客户</span>
-								 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
-								 	</li>
-								 	<li>
-								 		<span class="orderLable tableBck">有意向</span>
-								 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
-								 	</li>
-								 	<li>
-								 		<span class="orderLable tableBck">需要购买</span>
-								 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
-								 	</li>
-								 	<li>
-								 		<span class="orderLable tableBck">很麻烦</span>
-								 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
-								 	</li>
-								 	<li>
-								 		<span class="orderLable tableBck">不接电话</span>
-								 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
-								 	</li>
-								 	<li>
-								 		<span class="orderLable tableBck">放弃治疗</span>
-								 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
-								 	</li>
-								 </ul>
-							</div>
-							<div class="layui-tab-item default">
-								 <ul>
-								 	<li>
-								 		<span class="CommunicateLable tableBck">土豪客户</span>
-								 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
-								 	</li>
-								 	<li>
-								 		<span class="CommunicateLable tableBck">有意向</span>
-								 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
-								 	</li>
-								 	<li>
-								 		<span class="CommunicateLable tableBck">需要购买</span>
-								 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
-								 	</li>
-								 	<li>
-								 		<span class="CommunicateLable tableBck">很麻烦</span>
-								 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
-								 	</li>
-								 	<li>
-								 		<span class="CommunicateLable tableBck">不接电话</span>
-								 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
-								 	</li>
-								 	<li>
-								 		<span class="CommunicateLable tableBck">放弃治疗</span>
-								 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
-								 	</li>
-								 </ul>
-							</div>
-							<div class="layui-tab-item default">
-								 <ul>
-								 	<li>
-								 		<span class="otherLable tableBck">土豪客户</span>
-								 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
-								 	</li>
-								 	<li>
-								 		<span class="otherLable tableBck">有意向</span>
-								 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
-								 	</li>
-								 	<li>
-								 		<span class="otherLable tableBck">需要购买</span>
-								 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
-								 	</li>
-								 	<li>
-								 		<span class="otherLable tableBck">很麻烦</span>
-								 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
-								 	</li>
-								 	<li>
-								 		<span class="otherLable tableBck">不接电话</span>
-								 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
-								 	</li>
-								 	<li>
-								 		<span class="otherLable tableBck">放弃治疗</span>
-								 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
-								 	</li>
-								 </ul>
-							</div>
-						 </div>
-						</div>
-					</div>
-		
-			      </td>
-			    </tr>
-			  </tbody>
-			</table>
-			<div class="control">wodet</div>
-		</div>
-		
-		
 		
 		
 		
@@ -509,7 +223,6 @@
 				<div class="function_block">
 					<span>功能：</span>
 					<div>
-						<button class="layui-btn layui-btn-normal layui-btn-small" onclick="adduser()">新增客户</button>
 						<button class="layui-btn layui-btn-normal layui-btn-small" onclick="deluser()">删除客户</button>
 						<button class="layui-btn layui-btn-normal layui-btn-small" onclick="transferBlock()">转移客户</button>
 						<button class="layui-btn layui-btn-normal layui-btn-small" onclick="exports()">客户资料导出</button>
@@ -543,9 +256,6 @@
 				        		<span>
 				        			姓名：王某某
 				        		</span>
-				        		<span style="margin-left: 15%;">
-				        			添加人：801
-				        		</span>
 				        	</p>
 				        	<p>
 				        		<span>
@@ -575,8 +285,8 @@
 				        	<p>17:7:6 12:12:22添加媒体来源为：武汉日报</p>
 				        </td>
 				        <td>
-				        	<span class="userLable tableBck">土豪客户</span>
-				        	<span class="orderLable tableBck">不接电话</span>
+				        	<span class="otherLable tableBck">放弃治疗</span>
+				        	<span class="userLable tableBck">很麻烦</span>
 				        </td>
 				        <td>
 				        	<p title="查看客户详情"><img src="../../../img/user/index/See.png"/ width="24px" height="24px"></p>
@@ -591,9 +301,6 @@
 				        		<span>
 				        			姓名：王某某
 				        		</span>
-				        		<span style="margin-left: 15%;">
-				        			添加人：801
-				        		</span>
 				        	</p>
 				        	<p>
 				        		<span>
@@ -623,12 +330,12 @@
 				        	<p>17:7:6 12:12:22添加媒体来源为：武汉日报</p>
 				        </td>
 				        <td>
-				        	<span class="userLable tableBck">土豪客户</span>
-				        	<span class="orderLable tableBck">土豪客户</span>
+				        	<span class="otherLable tableBck">放弃治疗</span>
+				        	<span class="userLable tableBck">很麻烦</span>
 				        </td>
 				        <td>
 				        	<p title="查看客户详情"><img src="../../../img/user/index/See.png"/ width="24px" height="24px"></p>
-				        	<p title="分配客户资料" onclick="transfer(12345)"><img src="../../../img/user/index/distribution.png" width="20px" height="20px"></p>
+				        	<p title="分配客户资料" onclick="transferBlock(12345);"><img src="../../../img/user/index/distribution.png" width="20px" height="20px"></p>
 				        	<p title="删除客户资料" onclick="deluser(123);"><img src="../../../img/user/index/delete.png" width="24px" height="24px"></p>
 				        </td>
 				      </tr>
@@ -639,9 +346,6 @@
 				        		<span>
 				        			姓名：王某某
 				        		</span>
-				        		<span style="margin-left: 15%;">
-				        			添加人：801
-				        		</span>
 				        	</p>
 				        	<p>
 				        		<span>
@@ -671,12 +375,12 @@
 				        	<p>17:7:6 12:12:22添加媒体来源为：武汉日报</p>
 				        </td>
 				        <td>
-				        	<span class="userLable tableBck">土豪客户</span>
-				        	<span class="orderLable tableBck">土豪客户</span>
+				        	<span class="otherLable tableBck">放弃治疗</span>
+				        	<span class="userLable tableBck">很麻烦</span>
 				        </td>
 				        <td>
 				        	<p title="查看客户详情"><img src="../../../img/user/index/See.png"/ width="24px" height="24px"></p>
-				        	<p title="转移客户资料" onclick="transfer(12345)"><img src="../../../img/user/index/distribution.png" width="20px" height="20px"></p>
+				        	<p title="转移客户资料" onclick="transferBlock(12345);"><img src="../../../img/user/index/distribution.png" width="20px" height="20px"></p>
 				        	<p title="删除客户信息" onclick="deluser(123);"><img src="../../../img/user/index/delete.png" width="24px" height="24px"></p>
 				        </td>
 				      </tr>
@@ -687,9 +391,6 @@
 				        		<span>
 				        			姓名：王某某
 				        		</span>
-				        		<span style="margin-left: 15%;">
-				        			添加人：801
-				        		</span>
 				        	</p>
 				        	<p>
 				        		<span>
@@ -719,12 +420,12 @@
 				        	<p>17:7:6 12:12:22添加媒体来源为：武汉日报</p>
 				        </td>
 				        <td>
-				        	<span class="userLable tableBck">土豪客户</span>
-				        	<span class="orderLable tableBck">土豪客户</span>
+				        	<span class="otherLable tableBck">放弃治疗</span>
+				        	<span class="userLable tableBck">很麻烦</span>
 				        </td>
 				        <td>
 				        	<p title="查看客户详情"><img src="../../../img/user/index/See.png"/ width="24px" height="24px"></p>
-				        	<p title="分配客户资料" onclick="transfer(12345)"><img src="../../../img/user/index/distribution.png" width="20px" height="20px"></p>
+				        	<p title="分配客户资料" onclick="transferBlock(12345);"><img src="../../../img/user/index/distribution.png" width="20px" height="20px"></p>
 				        	<p title="删除客户资料" onclick="deluser(123)"><img src="../../../img/user/index/delete.png" width="24px" height="24px"></p>
 				        </td>
 				      </tr>
@@ -755,7 +456,6 @@
 		
 		<script src="../../JS/jquery-1.11.0.js"></script>
 		<script src="../../../layui/lay/dest/layui.all.js"></script>
-		<script src="../../JS/user/city.js"></script>
 		<script src="../../JS/user/index.js"></script>
 		<script src="../../JS/user/ThreeRegionalLinkage.js"></script>
 		<script src="../../JS/user/TwoRegionalLinkage.js"></script>

@@ -1,0 +1,310 @@
+body{
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+	background-color: #ECF0F5;
+}
+#header{
+	width:100%;
+	height: 70px;
+	position:fixed; 
+	top: 0px;
+	z-index: 10;
+	border-bottom:1px solid #666666 ;
+	background-color: #393D49;
+}
+header img{
+	width: 200px;
+	height: 100%;
+	float: left;
+}
+.layui-anim-upbit{
+	color: black;
+}
+.headerTop{
+	height: 40px;
+	margin-right: 20px;
+	float: right;
+	color: #FFFFFF;
+}
+.headerTop ul{
+	list-style: none;
+	margin-left: 20px;
+}
+.headerTop li{
+	margin-left: 10px;
+	float: left;
+	line-height: 40px;
+}
+.headerTop li>button{
+	margin-left: 10px;
+	width: 100px;
+}
+.headerTop li>span{
+	line-height: 200%;
+	font-size: 18px;
+}
+.headerButtom{
+	width: 700px;
+	height: 30px;
+	float: right;
+	color: #FFFFFF;
+}
+.headerButtom ul {
+	clear: both;
+	list-style: none;
+	margin-left:10px;
+}
+.headerButtom ul li{
+	float: left;
+	margin-right: 1%;
+	line-height: 30px;
+}
+
+.sidebar{
+	margin-top: -5px;
+	width: 200px;	
+	background-color:#393D49;
+	float: left;
+	/*margin-top: 70px;*/
+}
+.sidebar-button{
+	width: 0.5%;
+	float: left;
+}
+.sidebar-button>img{
+	margin-top: 50%;
+}
+
+.sidebar-bg{
+	
+	padding-left: 50px!important;
+}
+
+.sidebar-bg1{
+	background: url(../../../img/user/index/u269.png) no-repeat center;
+	background-position: 20px 12px;
+	background-size: 16px 16px;
+}
+
+.sidebar-bg2{
+	background: url(../../../img/user/index/user.png) no-repeat center;
+	background-position: 20px 12px;
+	background-size: 16px 16px;
+}
+
+.sidebar-bg3{
+	background: url(../../../img/user/index/commodity.png) no-repeat center;
+	background-position: 20px 12px;
+	background-size: 16px 16px;
+}
+
+.sidebar-bg4{
+	background: url(../../../img/user/index/order.png) no-repeat center;
+	background-position: 20px 12px;
+	background-size: 16px 16px;
+}
+#content{
+	/*width: 85%;*/
+	margin-top: 70px;
+	overflow: auto;
+	/*float: right;*/
+}
+
+.userInformation{
+	width: 98%;
+	margin: 1%;
+	height: auto;
+	padding-bottom: 15px;
+	background-color: #DFE2E5;
+}
+.userInformation>h1{
+	font-size: 25px;
+	margin:10px 0 ;
+	text-align: center;
+	background-color: #D2D5D8;
+}
+.userdata>p:nth-child(odd){
+	float: left;
+}
+.userdata>p:nth-child(even){
+	float: right;
+}
+.userdata>p{
+	padding-bottom: 10px;
+}
+.imgBtn>th{
+	font-size:20px!important ;
+}
+.imgBtn img{
+	float: right;
+}
+.Preservation{
+	display: block;
+	width: 100%;
+	height: 40px;
+}
+.Preservation>button{
+	float: right;
+	display:none;
+}
+.phone{
+	height: 36px!important;
+	
+}
+.phone>span:last-child{
+	float: right;
+}
+.phoneBtn{
+	height: 40px;
+	/*overflow: hidden;*/
+}
+.phone:first-child{
+	float: left;
+}
+.phoneBtn>button{
+	margin-top: 5px;
+	float: right;
+}
+.cleth{
+	clear: both;
+}
+.addressDiv{
+	clear: both;
+}
+
+.addressBtn button{
+	float: right;
+}
+
+.userLable{
+	background: red;
+	border-radius: 10%;
+	font-size: 18px;
+	margin-bottom: 5px;
+	height: 22px;
+	line-height: 22px;
+	color: #FFFFFF;
+}
+.orderLable{
+	margin-bottom: 5px;
+	background: yellow;
+	border-radius: 10%;
+	height: 20px;
+	line-height: 20px;
+	font-size: 16px;
+	color: #FFFFFF;
+}
+.CommunicateLable{
+	height: 20px;
+	line-height: 20px;
+	margin-bottom: 5px;
+	background-color:lightpink ;
+	border-radius: 10%;
+	font-size: 16px;
+	color: #FFFFFF;
+}
+.otherLable{
+	margin-bottom: 5px;
+	background-color: #AFD9EE ;
+	border-radius: 10%;
+	font-size: 16px;
+	height: 20px!important;
+	line-height: 20px;
+	color: #FFFFFF;
+}
+.labelTd p{
+	clear: both;
+}
+.labelTd button{
+	float: right;
+}
+.mask{
+     position: fixed;
+     top: 0;left: 0;bottom: 0;right: 0;
+     background-color: rgba(0,0,0,0.5);
+     z-index: 990;
+     display: none;
+}
+.maskContent{
+	overflow: auto;
+	width: 700px;
+	height: auto;
+	background-color: #FFFFFF;
+	position: fixed;
+	top: 0;
+	left: 28%;	
+}
+.userLableUl button{
+	float: right;
+}
+.userLableUl li{
+	clear: both;
+}
+
+.tableCancel{
+	width: 20px;
+	height: 1px;
+	float: right;
+}
+.maskTableDiv{
+	width: 100%;
+	clear: both;
+	margin-bottom: 50px;
+}
+.maskTableDiv button{
+	float: right;
+}
+
+.extended{
+	width: 98%;
+	margin: 1%;
+	height: 350px;
+	background-color: #DFE2E5;
+}
+.extendedHidden{
+	width: 100%;
+	font-size: 25px;
+	text-align: center;
+	height: 33px;
+	line-height: 30px;
+	background-color: #D2D5D8;
+}
+.pageLeft{
+	width: 100%;
+	height: auto;
+}
+#page{
+	float: right;
+}
+.relevant{
+	/*margin-top: 85px!important;*/
+	width: 98%;
+	margin: 1%;
+	height: 350px;
+	background-color: #DFE2E5;
+}
+.relevantTab{
+	background-color: #FFFFFF;
+}
+.selectRight{
+	width: 20%;
+	float: right;
+	z-index: 9999;
+	margin-bottom: -30px;
+	margin-top: -22px;
+	border-bottom: 1px solid #e2e2e2;
+}
+.relevantTableUl{
+	width: 80%;
+}
+#page1{
+	float: right;
+	border: none;
+}
+#page2{
+	float: right;
+}
+#page3{
+	float: right;
+}

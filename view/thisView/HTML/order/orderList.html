@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>订单列表</title>
+		<link rel="stylesheet" href="../../../layui/css/layui.css" />
+		<link rel="stylesheet" href="../../CSS/public.css" />
+		<link rel="stylesheet" href="../../CSS/order/orderList.css" />
+	</head>
+	<body>
+		<header id="header">
+			<img src="../../../img/user/index/logo.png" />
+			<div class="headerTop">
+				<ul>
+					<li><span>坐席状态</span><button class="layui-btn  layui-btn-small" onclick="callStatus(this)">空闲</button></li>
+					<li><span>通话状态</span></li>
+					<li><button class="layui-btn layui-btn-small">通话中</button></li>
+					<li><button class="layui-btn layui-btn-small" >已挂断</button></li>
+					<li><button class="layui-btn  layui-btn-small" >呼叫中</button></li>
+				</ul>
+			</div>
+			<div class="headerButtom">
+				<ul>
+					<li>姓名:李某某(822)</li>
+					<li>您当前的状态：示忙。</li>
+					<li>您的身份：会员。</li>
+					<li>您的部门：销售部三组。</li>
+					<li>使用分机：SIP/822</li>
+				</ul>
+			</div>
+		</header>
+		<div class="sidebar" id="sidebar">
+			<ul class="layui-nav layui-nav-tree" lay-filter="demo"style="width: 100%;height: 100%;" id="nav">
+			  <li class="layui-nav-item " >
+			    <a href="javascript:;" class="sidebar-bg1 sidebar-bg">话务管理</a>
+			    <dl class="layui-nav-child">
+			      <dd><a href="javascript:;">通话记录</a></dd>
+			      <dd><a href="javascript:;">转移设置</a></dd>
+			      <dd><a href="javascript:;">坐席设置</a></dd>
+			    </dl>
+			  </li>
+			  <li class="layui-nav-item">
+			    <a href="javascript:;" class="sidebar-bg2 sidebar-bg">客户管理</a>
+			    <dl class="layui-nav-child">
+			      <dd><a href="">客户列表</a></dd>
+			      <dd><a href="">公海客户</a></dd>
+			      <dd><a href="">预约客户</a></dd>
+			      <dd><a href="">资料管理</a></dd>
+			      <dd><a href="">代办客户</a></dd>
+			    </dl>
+			  </li>
+			  <li class="layui-nav-item">
+			  	<a href="javascript:;" class="sidebar-bg3 sidebar-bg">商品管理</a>
+			    <dl class="layui-nav-child">
+			      <dd><a href="">商品列表</a></dd>
+			      <dd><a href="">商品列表</a></dd>
+			    </dl>
+			  </li>
+			  <li class="layui-nav-item">
+			  	<a href="javascript:;" class="sidebar-bg4 sidebar-bg">订单管理</a>
+			    <dl class="layui-nav-child">
+			      <dd><a href="">我的订单</a></dd>
+			      <dd><a href="">全部订单</a></dd>
+			      <dd><a href="">待审订单</a></dd>  
+			      <dd><a href="">已审订单</a></dd>
+			      <dd><a href="">未审订单</a></dd>
+			      <dd><a href="">打回订单</a></dd>
+			    </dl></li>
+			</ul>
+		</div>
+		<div class="sidebar-button" id="sidButton">
+			<img src="../../../img/user/index/bar_close.gif" />
+		</div>
+		<div id="content">
+			<div class="layui-tab">
+			  <ul class="layui-tab-title">
+			    <li class="layui-this">全部订单</li>
+			    <li>待审订单</li>
+			    <li>已审订单</li>
+			    <li>发货订单</li>
+			    <li>审核未过</li>
+			    <li>取消/退货订单</li>
+			  </ul>
+			  <div class="layui-tab-content">
+			    <div class="layui-tab-item layui-show">
+			      <fieldset class="layui-elem-field site-demo-button" style="margin-top: 10px;">
+			      	<legend>搜索区</legend> 
+					<form>
+					  <div>
+					  	 <div class="layui-form-item">
+						    <div class="layui-inline">
+						      <label class="layui-form-label">订单号</label>
+						      <div class="layui-input-inline">
+						        <input type="tel" name="phone" lay-verify="phone" autocomplete="off" class="layui-input">
+						      </div>
+						    </div>
+						    <div class="layui-inline">
+						      <label class="layui-form-label">收货人姓名</label>
+						      <div class="layui-input-inline">
+						        <input type="text" name="email" lay-verify="email" autocomplete="off" class="layui-input">
+						      </div>
+						    </div>
+						     <div class="layui-inline">
+						      <label class="layui-form-label">下单坐席</label>
+						      <div class="layui-input-inline">
+						        <input type="text" name="email" lay-verify="email" autocomplete="off" class="layui-input">
+						      </div>
+						    </div>
+						  </div>
+						  
+						  <div class="layui-form-item">
+						    <div class="layui-inline">
+						      <label class="layui-form-label">收货号码</label>
+						      <div class="layui-input-inline">
+						        <input type="tel" name="phone" lay-verify="phone" autocomplete="off" class="layui-input">
+						      </div>
+						    </div>
+						    <div class="layui-inline">
+						      <label class="layui-form-label">下单时间</label>
+						       <div class="layui-input-inline">
+						        <input type="text" class="layui-input" id="test5" placeholder="请选择开始时间">
+						      </div>
+						      <div class="layui-form-mid">-</div>
+						      <div class="layui-input-inline" >
+							    <input type="text" class="layui-input" id="test5" placeholder="请选择接受时间">
+							  </div>
+						    </div>
+						  </div>
+						  
+						  <div class="layui-form-item">
+						  	<div class="layui-inline">
+							  	<label class="layui-form-label">发货时间</label>
+							       <div class="layui-input-inline">
+							        <input type="text" class="layui-input" id="test5" placeholder="请选择开始时间">
+							      </div>
+							      <div class="layui-form-mid">-</div>
+							      <div class="layui-input-inline" >
+								    <input type="text" class="layui-input" id="test5" placeholder="请选择结束时间">
+								  </div>
+						  	</div>
+						  </div>
+						  
+						  <div class="submitBtn">
+						  		<button class="layui-btn">默认按钮</button>
+						  		<button class="layui-btn">默认按钮</button>
+						  </div>
+					  </div>
+					  </form> 
+				  </fieldset>
+			    </div>
+			    <div class="layui-tab-item">内容2</div>
+			    <div class="layui-tab-item">内容3</div>
+			    <div class="layui-tab-item">内容4</div>
+			    <div class="layui-tab-item">内容5</div>
+			  </div>
+			</div>
+		</div>
+		
+		<script src="../../JS/jquery-1.11.0.js"></script>
+		<script src="../../../layui2.1/layui.js"></script>
+		<script src="../../JS/public.js"></script>
+		<script src="../../JS/order/orderList.js"></script>
+		<script>
+//			var form = layui.use("form");
+//			var element = layui.use("element");
+			layui.use(['laydate','form','element'],function (){
+  				var laydate = layui.laydate,layform = layui.form,layelement = layui.element;
+  				
+  				laydate.render({
+			    elem: '#test5'
+			    ,type: 'datetime'
+			  	});
+			})
+		</script>
+	</body>
+</html>

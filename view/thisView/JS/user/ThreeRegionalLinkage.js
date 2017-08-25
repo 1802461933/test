@@ -1,7 +1,9 @@
 (function($){
+	/*定义一个对象*/
 	var pca = {};
-	
+	/*添加二个属性一个为keys*/
 	pca.keys = {};
+	/*添加二个属性一个为ckeys*/
 	pca.ckeys = {};
 	
 	pca.init = function(province, city, area, initprovince, initcity, initarea){//jQuery选择器, 省-市-区
