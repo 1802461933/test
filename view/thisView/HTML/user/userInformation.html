@@ -2,24 +2,673 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title></title>
-		<link href="../../../layui/css/layui.css" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>客户详情</title>
+		<link rel="stylesheet" href="../../../layui2.1/css/layui.css" />
+		<link rel="stylesheet" href="../../CSS/user/userInformation.css" />
 	</head>
 	<body>
-		 <div class="layui-form-item" pane="">
-		    <label class="layui-form-label">单选框</label>
-		    <div class="layui-input-block">
-		      <input type="radio" name="sex" value="男" title="男" checked="">
-		      <input type="radio" name="sex" value="女" title="女">
-		      <input type="radio" name="sex" value="禁" title="禁用" disabled="">
-		    </div>
+		<header id="header">
+			<img src="../../../img/user/index/logo.png" />
+			<div class="headerTop">
+				<ul>
+					<li><span>坐席状态</span><button class="layui-btn  layui-btn-small" onclick="callStatus(this)">空闲</button></li>
+					<li><span>通话状态</span></li>
+					<li><button class="layui-btn layui-btn-small">通话中</button></li>
+					<li><button class="layui-btn layui-btn-small" >已挂断</button></li>
+					<li><button class="layui-btn  layui-btn-small" >呼叫中</button></li>
+				</ul>
+			</div>
+			<div class="headerButtom">
+				<ul>
+					<li>姓名:李某某(822)</li>
+					<li>您当前的状态：示忙。</li>
+					<li>您的身份：会员。</li>
+					<li>您的部门：销售部三组。</li>
+					<li>使用分机：SIP/822</li>
+				</ul>
+			</div>
+		</header>
+		
+		<div class="sidebar" id="sidebar">
+			<ul class="layui-nav layui-nav-tree" lay-filter="demo" id="nav">
+			  <li class="layui-nav-item " >
+			    <a href="javascript:;" class="sidebar-bg1 sidebar-bg">话务管理</a>
+			    <dl class="layui-nav-child">
+			      <dd><a href="javascript:;">通话记录</a></dd>
+			      <dd><a href="javascript:;">转移设置</a></dd>
+			      <dd><a href="javascript:;">坐席设置</a></dd>
+			    </dl>
+			  </li>
+			  <li class="layui-nav-item">
+			    <a href="javascript:;" class="sidebar-bg2 sidebar-bg">客户管理</a>
+			    <dl class="layui-nav-child">
+			      <dd><a href="">客户列表</a></dd>
+			      <dd><a href="">公海客户</a></dd>
+			      <dd><a href="">预约客户</a></dd>
+			      <dd><a href="">资料管理</a></dd>
+			      <dd><a href="">代办客户</a></dd>
+			    </dl>
+			  </li>
+			  <li class="layui-nav-item">
+			  	<a href="javascript:;" class="sidebar-bg3 sidebar-bg">商品管理</a>
+			    <dl class="layui-nav-child">
+			      <dd><a href="">商品列表</a></dd>
+			      <dd><a href="">商品列表</a></dd>
+			    </dl>
+			  </li>
+			  <li class="layui-nav-item">
+			  	<a href="javascript:;" class="sidebar-bg4 sidebar-bg">订单管理</a>
+			    <dl class="layui-nav-child">
+			      <dd><a href="">我的订单</a></dd>
+			      <dd><a href="">全部订单</a></dd>
+			      <dd><a href="">待审订单</a></dd>  
+			      <dd><a href="">已审订单</a></dd>
+			      <dd><a href="">未审订单</a></dd>
+			      <dd><a href="">打回订单</a></dd>
+			    </dl></li>
+			</ul>
+		</div>
+		<div class="sidebar-button" id="sidButton">
+			<img src="../../../img/user/index/bar_close.gif" />
 		</div>
 		
-		<script src="../../../layui/layui.js"></script>
-		<script>
-			layui.use(['form'], function(){
-				  var form = layui.form();
-				});
-		</script>
+		<div id="content">
+			<div class="userInformation">
+				<h1>客户详情</h1>
+				<table class="layui-table">
+				    <colgroup>
+				      <col width="200">
+				      <col width="200">
+				      <col width="200">
+				      <col width="200">
+				    </colgroup>
+				    <thead>
+				      <tr class="imgBtn">
+				        <th>基本信息<span title="修改用户信息" onclick="userDataModify()"><img src="../../../img/user/userInformation/modify.png"/></span></th>
+				        <th>联系方式<span title="添加联系方式" onclick="addUserPhone()"><img src="../../../img/user/userInformation/addPhone.png"/></span></th>
+				        <th>详细地址<span title="添加用户地址" onclick="address()"><img src="../../../img/user/userInformation/address.png"/ width="32px" height="32px"></th>
+				        <th>客户标签<span title="添加用户标签" onclick="addTables()"><img src="../../../img/user/userInformation/addLable.png"/ width="32px" height="32px"></th>
+				      </tr> 
+				    </thead>
+				    <tbody>
+				      <tr>
+				        <td class="userdata">
+				        	<p>姓名：<span contenteditable="false">王某某</span></p>
+				        	<p>
+				        		添加人：
+				        		<select name="quiz1" disabled="disabled">
+								        <option value="">请选择省</option>
+								        <option value="浙江" selected="">801</option>
+								        <option value="你的工号">803</option>
+								        <option value="你最喜欢的老师">750</option>
+							    </select>
+				        	</p>
+							<p>年龄：<span contenteditable="false">18</span></p>
+							
+							<p>归属地：<span contenteditable="false">陕西省西安市</span></p>
+							<p>单位地址：<span contenteditable="false">陕西省西安市碑林区太白北路太白星座</span></p>
+							<p>添加时间：2017.8.8-08:08:08</p>
+							<p class="Preservation"><button class="layui-btn layui-btn-primary layui-btn-small" onclick="Preservation(this);">保存</button></p>
+				        </td>
+				        <td class="userPhone">
+							<div class="cleth">
+								<p class="phone">
+									<span>13333333333/王某某</span>
+									<span>陕西省/西安市</span>
+								</p>
+								<p class="phoneBtn">
+									<button class="layui-btn layui-btn-primary layui-btn-small" onclick="delPhone(this)">删除</button>
+									<button class="layui-btn layui-btn-primary layui-btn-small" onclick="prvnPhone(this)">保存</button>
+									<button class="layui-btn layui-btn-primary layui-btn-small" onclick="editPhone(this)">修改</button>
+								</p>
+				        	</div>
+				        	<div class="cleth">
+								<p class="phone">
+									<span>13333333333/王某某</span>
+									<span>陕西省/西安市</span>
+								</p>
+								<p class="phoneBtn">
+									<button class="layui-btn layui-btn-primary layui-btn-small" onclick="delPhone(this)">删除</button>
+									<button class="layui-btn layui-btn-primary layui-btn-small" onclick="prvnPhone(this)">保存</button>
+									<button class="layui-btn layui-btn-primary layui-btn-small" onclick="editPhone(this)">修改</button>
+								</p>
+				        	</div>
+				        	<div class="cleth">
+								<p class="phone">
+									<span>13333333333/王某某</span>
+									<span>陕西省/西安市</span>
+								</p>
+								<p class="phoneBtn">
+									<button class="layui-btn layui-btn-primary layui-btn-small" onclick="delPhone(this)">删除</button>
+									<button class="layui-btn layui-btn-primary layui-btn-small" onclick="prvnPhone(this)">保存</button>
+									<button class="layui-btn layui-btn-primary layui-btn-small" onclick="editPhone(this)">修改</button>
+								</p>
+				        	</div>
+				        </td>
+				        <td class="addressTd">
+				        	<div class="addressDiv">
+								<p class="addressP">
+									我的家在东北松花江上唉，你要发货就发到松花江尾诶，诶嘿，诶嘿，诶嘿哦
+								</p>
+								<p class="addressBtn">
+									<button class="layui-btn layui-btn-primary layui-btn-small" onclick="delAddress(this)">删除</button>
+									<button class="layui-btn layui-btn-primary layui-btn-small" onclick="prvnAddress(this)">保存</button>
+									<button class="layui-btn layui-btn-primary layui-btn-small" onclick="editAddress(this)">修改</button>
+								</p>
+				        	</div>
+				        	<div class="addressDiv">
+								<p class="addressP">
+									我的家在东北松花江上唉，你要发货就发到松花江尾诶，诶嘿，诶嘿，诶嘿哦
+								</p>
+								<p class="addressBtn">
+									<button class="layui-btn layui-btn-primary layui-btn-small" onclick="delAddress(this)">删除</button>
+									<button class="layui-btn layui-btn-primary layui-btn-small" onclick="prvnAddress(this)">保存</button>
+									<button class="layui-btn layui-btn-primary layui-btn-small" onclick="editAddress(this)">修改</button>
+								</p>
+				        	</div>
+				        	<div class="addressDiv">
+								<p class="addressP">
+									我的家在东北松花江上唉，你要发货就发到松花江尾诶，诶嘿，诶嘿，诶嘿哦
+								</p>
+								<p class="addressBtn">
+									<button class="layui-btn layui-btn-primary layui-btn-small" onclick="delAddress(this)">删除</button>
+									<button class="layui-btn layui-btn-primary layui-btn-small" onclick="prvnAddress(this)">保存</button>
+									<button class="layui-btn layui-btn-primary layui-btn-small" onclick="editAddress(this)">修改</button>
+								</p>
+				        	</div>
+				        </td>
+				        <td class="labelTd">
+				        	<p><span class="userLable">客户标签</span><button class="layui-btn layui-btn-primary layui-btn-small" onclick="deltable(this)">删除</button></p>
+				        	<p><span class="orderLable">客户订单标签</span><button class="layui-btn layui-btn-primary layui-btn-small" onclick="deltable(this)">删除</button></p>
+				        	<p><span class="CommunicateLable">客户沟通标签</span><button class="layui-btn layui-btn-primary layui-btn-small" onclick="deltable(this)">删除</button></p>
+				        	<p><span class="otherLable">客户其他标签</span><button class="layui-btn layui-btn-primary layui-btn-small" onclick="deltable(this)">删除</button></p>
+				        </td>
+				      </tr>
+				      
+				    </tbody>
+				  </table>
+			</div>
+			
+			<div class="extended">
+				<h1 class="extendedHidden"> 扩展信息</h1>	
+				  <table class="layui-table">
+				    <thead>
+				      <tr>
+				        <th>添加时间</th>
+				        <th>跟进时间</th>
+				        <th>跟进间隔</th>
+				        <th>最长通话</th>
+				      </tr> 
+				    </thead>
+				    <tbody>
+				      <tr>
+				        <td>2017-08-10 10:59:55</td>
+				        <td>2017-08-10 10:59:55</td>
+				        <td>14</td>
+				        <td>330s</td>
+				      </tr>
+				      <tr>
+				        <td>2017-08-10 10:59:55</td>
+				        <td>2017-08-10 10:59:55</td>
+				        <td>14</td>
+				        <td>330s</td>
+				      </tr>
+				      <tr>
+				        <td>2017-08-10 10:59:55</td>
+				        <td>2017-08-10 10:59:55</td>
+				        <td>14</td>
+				        <td>330s</td>
+				      </tr>
+				      <tr>
+				        <td>2017-08-10 10:59:55</td>
+				        <td>2017-08-10 10:59:55</td>
+				        <td>14</td>
+				        <td>330s</td>
+				      </tr>
+				      <tr>
+				        <td>2017-08-10 10:59:55</td>
+				        <td>2017-08-10 10:59:55</td>
+				        <td>14</td>
+				        <td>330s</td>
+				      </tr>
+				     </tbody>
+				    </table>
+				    <div class="pageLeft">
+				    	<div id="page"></div>
+				    </div>
+			</div>
+			<div class="relevant">
+				<h1 class="extendedHidden">相关信息</h1>
+				<div class="layui-tab relevantTab" >
+				  <ul class="layui-tab-title relevantTableUl">
+				    <li class="layui-this" onclick="selctDisplay(this.innerText)">动态</li>
+				    <li onclick="selctDisplay(this.innerText)">通话</li>
+				    <li onclick="selctDisplay(this.innerText)">订单</li>
+				  </ul>
+				   <div class="selectRight">
+				   	<div id="select">
+				   		<label>请选择动态分类：</label>
+				        <select name="modules" lay-verify="required" lay-search="">
+				          <option value="">请选择</option>
+				          <option value="1">通话动态</option>
+				          <option value="2">修改动态</option>
+				          <option value="3">订单动态</option>
+				          <option value="4">客户动态</option>
+				        </select>
+				    </div>    
+				  </div>
+
+				  <div class="layui-tab-content">
+				    <div class="layui-tab-item layui-show">
+				       <table class="layui-table">
+					    <tbody>
+					      <tr>
+					        <td>2017-08-08 09:08:08   类型：通话记录<br/>王某来电，由803/张某接入，通话时长为180s。</td>
+					      </tr>
+					      <tr>
+					        <td>2017-08-08 08:08:08   类型：客户订单><br />王某购买两件商品，总金额为230元。</td>
+					      </tr>
+					      <tr>
+					        <td>2017-08-07 10:15:15   类型：沟通记录<br />王某要求修改订单收货地址，更改：陕西省咸阳市什么什么区什么村。</td> 
+					      </tr>
+					      <tr>
+					        <td>2017-08-07 9:15:15   类型：客户信息<br />坐席803/张某修改客户信息，新增电话号码：18999999999。</td>
+					      </tr>
+					      <tr>
+					        <td>2017-08-07 9:15:15   类型：客户信息<br />坐席803/张某修改客户信息，更改用户名为：123。</td>
+					      </tr>
+					      <tr>
+					      	<td
+					      		<div id="page1" ></div>
+					      	</td>	
+					      </tr>
+					    </tbody>
+					  </table>
+				    </div>
+				    <div class="layui-tab-item">
+				    	 <table class="layui-table">
+						   <!--< <colgroup>
+						      col width="100">
+						      <col width="50">
+						      <col width="100">
+						      <col width="200">
+						      <col width="200">
+						      <col width="100">
+						      <col width="300">
+						      <col width="50">
+						    </colgroup>-->
+						    <thead>
+						      <tr>
+						        <th>主叫</th>
+						        <th>被叫</th>
+						        <th>线路号码</th>
+						        <th>接入系统</th>
+						        <th>接入坐席</th>
+						        <th>呼叫类型</th>
+						        <th>跟进记录</th>
+						        <th>录音</th>
+						      </tr> 
+						    </thead>
+						    <tbody>
+						      <tr>
+						        <td>刘某/801</td>
+						        <td>13333333333<br/>王某/西安</td>
+						        <td>400-4564-4654</td>
+						        <td>207-08-11 09:50:50<br />207-08-11 09:50:55<br />5s</td>
+						        <td>207-08-11 09:50:55<br />207-08-11 09:51:50<br />70s</td>
+						        <td>呼出<br />已接听</td>
+						        <td>客户已下单希望尽快发货</td>
+						        <td><img src="../../../img/user/userInformation/play.png"/></td>
+						      </tr>
+						      <tr>
+						        <td>刘某/801</td>
+						        <td>13333333333<br/>王某/西安</td>
+						        <td>400-4564-4654</td>
+						        <td>207-08-11 09:50:50<br />207-08-11 09:50:55<br />5s</td>
+						        <td>207-08-11 09:50:55<br />207-08-11 09:51:50<br />70s</td>
+						        <td>呼出<br />已接听</td>
+						        <td>客户已下单希望尽快发货</td>
+						        <td><img src="../../../img/user/userInformation/play.png"/></td>
+						      </tr>
+						      <tr>
+						        <td>刘某/801</td>
+						        <td>13333333333<br/>王某/西安</td>
+						        <td>400-4564-4654</td>
+						        <td>207-08-11 09:50:50<br />207-08-11 09:50:55<br />5s</td>
+						        <td>207-08-11 09:50:55<br />207-08-11 09:51:50<br />70s</td>
+						        <td>呼出<br />已接听</td>
+						        <td>客户已下单希望尽快发货</td>
+						        <td><img src="../../../img/user/userInformation/play.png"/></td>
+						      </tr>
+						      <tr>
+						        <td>刘某/801</td>
+						        <td>13333333333<br/>王某/西安</td>
+						        <td>400-4564-4654</td>
+						        <td>207-08-11 09:50:50<br />207-08-11 09:50:55<br />5s</td>
+						        <td>207-08-11 09:50:55<br />207-08-11 09:51:50<br />70s</td>
+						        <td>呼出<br />已接听</td>
+						        <td>客户已下单希望尽快发货</td>
+						        <td><img src="../../../img/user/userInformation/play.png"/></td>
+						      </tr>
+						      <tr>
+						      	
+						      </tr>
+						    </tbody>
+						  </table>
+						  <div id="page2"></div>
+				    </div>
+				    <div class="layui-tab-item">
+				    	 <table class="layui-table">
+						    <colgroup>
+						      <col width="50">
+						      <col width="200">
+						      <col width="150">
+						      <col width="100">
+						      <col width="100">
+						      <col width="50">
+						      <col width="50">
+						    </colgroup>
+						    <thead>
+						      <tr>
+						        <th>收货人</th>
+						        <th>收货地址</th>
+						        <th>收货电话</th>
+						        <th>下单时间</th>
+						        <th>下单商品</th>
+						        <th>下单金额</th>
+						        <th>物流状态</th>
+						      </tr> 
+						    </thead>
+						    <tbody>
+						      <tr>
+						        <td>王某某</td>
+						        <td>陕西省西安市未央区<br/>XXXXXXXXXXXXX</td>
+						        <td>12345678965</td>
+						        <td>2017.8.8-08:08:08</td>
+						        <td>好吃的</td>
+						        <td>125￥</td>
+						        <td>运输中</td>
+						      </tr>
+						      <tr>
+						        <td>王某某</td>
+						        <td>陕西省西安市未央区<br/>XXXXXXXXXXXXX</td>
+						        <td>12345678965</td>
+						        <td>2017.8.8-08:08:08</td>
+						        <td>好吃的</td>
+						        <td>125￥</td>
+						        <td>运输中</td>
+						      </tr>
+						      <tr>
+						        <td>王某某</td>
+						        <td>陕西省西安市未央区<br/>XXXXXXXXXXXXX</td>
+						        <td>12345678965</td>
+						        <td>2017.8.8-08:08:08</td>
+						        <td>好吃的</td>
+						        <td>125￥</td>
+						        <td>运输中</td>
+						      </tr>
+						      <tr>
+						       <td>王某某</td>
+						        <td>陕西省西安市未央区<br/>XXXXXXXXXXXXX</td>
+						        <td>12345678965</td>
+						        <td>2017.8.8-08:08:08</td>
+						        <td>好吃的</td>
+						        <td>125￥</td>
+						        <td>运输中</td>
+						      </tr>
+						      <tr>
+						        <td>王某某</td>
+						        <td>陕西省西安市未央区<br/>XXXXXXXXXXXXX</td>
+						        <td>12345678965</td>
+						        <td>2017.8.8-08:08:08</td>
+						        <td>好吃的</td>
+						        <td>125￥</td>
+						        <td>运输中</td>
+						      </tr>
+						    </tbody>
+						  </table>
+						  <div id="page3"></div>
+				    </div>
+				  </div>
+				</div>
+			</div>
+		</div>
+		<div class="mask">
+			<div class="maskContent" >
+				<div class="layui-tab">
+				  <ul class="layui-tab-title">
+				    <li class="layui-this">已选标签</li>
+				    <li>通话标签</li>
+				    <li>订单标签</li>
+				    <li>沟通标签</li>
+				    <li>客户标签</li>
+				    <li>其他标签</li>
+				  </ul>
+				  <div class="maskTableDiv">
+					<button class="layui-btn " onclick="tablePreservation(this)" >保存</button>
+					<span class="tableCancel"></span>
+					<button class="layui-btn " onclick="tablePreservation(this)">取消</button>
+				  </div>
+				  <div class="layui-tab-content">
+				    <div class="layui-tab-item layui-show">
+				     	<ul class="userLableUl" id="addTabUl">
+						 	<li>
+						 		<span class="userLable">土豪客户</span>
+						 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="delTable(this)">删除</button>
+						 	</li>
+						 	<li>
+						 		<span class="orderLable">有意向</span>
+						 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="delTable(this)">删除</button>
+						 	</li>
+						 	<li>
+						 		<span class="userLable">需要购买</span>
+						 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="delTable(this)">删除</button>
+						 	</li>
+						 	<li>
+						 		<span class="orderLable">很麻烦</span>
+						 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="delTable(this)">删除</button>
+						 	</li>
+						 	<li>
+						 		<span class="CommunicateLable">不接电话</span>
+						 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="delTable(this)">删除</button>
+						 	</li>
+						 	<li>
+						 		<span class="otherLable">放弃治疗</span>
+						 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="delTable(this)">删除</button>
+						 	</li>
+						 </ul>
+				    </div>
+				    <div class="layui-tab-item">
+				    	 <ul class="userLableUl">
+							<li>
+								 <span class="userLable">土豪客户</span>
+								 <button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
+							</li>
+							<li>
+								<span class="userLable">有意向</span>
+								<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
+							</li>
+							<li>
+								 <span class="userLable">需要购买</span>
+								 <button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
+							</li>
+							<li>
+								<span class="userLable">很麻烦</span>
+								 <button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
+							</li>
+							<li>
+								 <span class="userLable">不接电话</span>
+								 <button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
+							</li>
+							<li>
+								<span class="userLable">放弃治疗</span>
+								<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
+							</li>
+						</ul>
+				    </div>
+				    <div class="layui-tab-item">
+				    	<ul class="userLableUl">
+						 	<li>
+						 		<span class="orderLable">土豪客户</span>
+						 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
+						 	</li>
+						 	<li>
+						 		<span class="orderLable">有意向</span>
+						 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
+						 	</li>
+						 	<li>
+						 		<span class="orderLable">需要购买</span>
+						 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
+						 	</li>
+						 	<li>
+						 		<span class="orderLable">很麻烦</span>
+						 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
+						 	</li>
+						 	<li>
+						 		<span class="orderLable">不接电话</span>
+						 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
+						 	</li>
+						 	<li>
+						 		<span class="orderLable">放弃治疗</span>
+						 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
+						 	</li>
+						 </ul>
+				    </div>
+				    <div class="layui-tab-item">
+				    	<ul class="userLableUl">
+						 	<li>
+						 		<span class="CommunicateLable">土豪客户</span>
+						 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
+						 	</li>
+						 	<li>
+						 		<span class="CommunicateLable">有意向</span>
+						 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
+						 	</li>
+						 	<li>
+						 		<span class="CommunicateLable">需要购买</span>
+						 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
+						 	</li>
+						 	<li>
+						 		<span class="CommunicateLable">很麻烦</span>
+						 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
+						 	</li>
+						 	<li>
+						 		<span class="CommunicateLable">不接电话</span>
+						 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
+						 	</li>
+						 	<li>
+						 		<span class="CommunicateLable">放弃治疗</span>
+						 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
+						 	</li>
+						 </ul>
+				    </div>
+				    <div class="layui-tab-item">
+				    	<ul class="userLableUl">
+						 	<li>
+						 		<span class="otherLable">土豪客户</span>
+						 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
+						 	</li>
+						 	<li>
+						 		<span class="otherLable">有意向</span>
+						 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
+						 	</li>
+						 	<li>
+						 		<span class="otherLable">需要购买</span>
+						 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
+						 	</li>
+						 	<li>
+						 		<span class="otherLable">很麻烦</span>
+						 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
+						 	</li>
+						 	<li>
+						 		<span class="otherLable">不接电话</span>
+						 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
+						 	</li>
+						 	<li>
+						 		<span class="otherLable">放弃治疗</span>
+						 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
+						 	</li>
+						 </ul>
+				    </div>
+				    <div class="layui-tab-item">
+				    	<ul class="userLableUl">
+						 	<li>
+						 		<span class="otherLable">土豪客户</span>
+						 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
+						 	</li>
+						 	<li>
+						 		<span class="otherLable">有意向</span>
+						 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
+						 	</li>
+						 	<li>
+						 		<span class="otherLable">需要购买</span>
+						 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
+						 	</li>
+						 	<li>
+						 		<span class="otherLable">很麻烦</span>
+						 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
+						 	</li>
+						 	<li>
+						 		<span class="otherLable">不接电话</span>
+						 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
+						 	</li>
+						 	<li>
+						 		<span class="otherLable">放弃治疗</span>
+						 		<button class="layui-btn layui-btn-primary layui-btn-mini" onclick="addTable(this)">增加</button>
+						 	</li>
+						 </ul>
+				    </div>
+				  </div>
+				</div>
+			</div>
+			
+		</div>
+		
 	</body>
+	<script src="../../JS/jquery-1.11.0.js"></script>
+	<script src="../../../layui2.1/layui.js"></script>
+	<script src="../../JS/user/userInformation.js"></script>
+	<script>
+		var form = layui.use("form");
+		var element = layui.use("element");
+		
+		layui.use(['laypage', 'layer'], function(){
+		  var laypage = layui.laypage
+		  ,layer = layui.layer;
+		 laypage.render({
+		    elem: 'page'
+		    ,count: 70 //数据总数
+		    ,limit:1
+		    ,jump: function(obj){
+		      console.log(obj)
+		    }
+		  });
+		  laypage.render({
+		    elem: 'page1'
+		    ,count: 70 //数据总数
+		    ,limit:1
+		    ,jump: function(obj){
+		      console.log(obj)
+		    }
+		  });
+		  laypage.render({
+		    elem: 'page2'
+		    ,count: 70 //数据总数
+		    ,limit:1
+		    ,jump: function(obj){
+		      console.log(obj)
+		    }
+		  });
+		  laypage.render({
+		    elem: 'page3'
+		    ,count: 70 //数据总数
+		    ,limit:1
+		    ,jump: function(obj){
+		      console.log(obj)
+		    }
+		  });
+		});
+		
+	</script>
 </html>

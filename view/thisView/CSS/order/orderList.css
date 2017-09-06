@@ -1,0 +1,21 @@
+.layui-tab{
+	margin: 10px;
+	width: 98%;
+	background-color: #E5E9EE;
+}
+.layui-tab-title{
+	background-color: #FEFCF8;
+}
+.layui-tab-title li{
+	border-bottom: 2px solid #058C81;
+	margin-right: 2px;
+}
+.layui-tab-content{
+	margin-top: 10px;
+	background-color: #FFFFFF;
+}
+.submitBtn{
+	margin-right: 50px;
+	margin-bottom: 15px;
+	float: right;
+}
