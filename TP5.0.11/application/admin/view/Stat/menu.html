@@ -1,0 +1,19 @@
+{include file="static/view/inc_menu_header.html"}
+
+<ul class="menu">
+<li class="group">按用户统计</li>
+{foreach $list as $key=>$vo}
+<li><a href="{:url('Stat/index?y='.$vo)}" target="main">{$vo}</a></li>
+{/foreach}
+<li class="group">按部门统计</li>
+{foreach $list as $vo}
+<li><a href="{:url('Stat/index?y='.$vo)}" target="main">{$vo}</a></li>
+{/foreach}
+<li class="group">按媒体统计</li>
+{foreach $list as $key=>$vo}
+<li><a href="{:url('Stat/index?y='.$vo)}" target="main">{$vo}</a></li>
+{/foreach}
+</ul>
+
+
+{include file="static/view/inc_menu_footer.html"}

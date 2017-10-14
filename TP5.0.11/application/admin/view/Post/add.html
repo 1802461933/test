@@ -1,0 +1,44 @@
+{include file="static/view/inc_header.html"}
+
+<h1>新建文章</h1>
+<form name="form1" id="form1" action="{:url('Post/add')}" method="post" >
+<table cellpadding="6" cellspacing="0" class="formTable">
+<tr>
+<th>标题</th>
+<td><input type="text" name="title" id="title" size="50" maxlength="100" minlength="2" required /> <span></span></td>
+</tr>
+<tr>
+<th>内容</th>
+<td><textarea name="content" id="content" class="ckeditor" required></textarea><span></span></td>
+</tr>
+<tr>
+<th>备注</th>
+<td><textarea name="note" id="note" class=""></textarea><span></span></td>
+</tr>
+<tr>
+<th>插图：</th>
+<td>
+<div id="queue"></div>
+<input id="file_upload" name="file_upload" type="file" multiple="true">
+</td>
+</tr>
+
+<th>栏目</th>
+<td>
+<select name="cat" id="cat">
+<option value="0">请选择</option>
+{foreach $select_cat as $vo}
+<option value="{$vo['id']}">{$vo['name']}</option>
+{/foreach}
+</select><span></span>
+</td>
+</table>
+
+<div class="fixed_buttonbox">
+<button type="submit" name="ok" id="ok_back" value="2" accesskey="s" />投稿</button>
+<button type="submit" name="ok" id="ok_back" value="1" accesskey="s" />存草稿</button>
+<input type="button" name="cancel" id="cancel" value="取消(×)" />
+</div>
+</form>
+
+{include file="static/view/inc_footer.html" /}

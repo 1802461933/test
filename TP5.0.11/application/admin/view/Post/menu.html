@@ -1,0 +1,11 @@
+{include file="static/view/inc_menu_header.html"}
+
+<ul class="menu">
+<li class="group">稿件分类</li>
+{foreach $list as $key=>$vo}
+<li><a href="{:url('Post/index?status='.$key)}" target="main">{$vo}</a></li>
+{/foreach}
+</ul>
+
+
+{include file="static/view/inc_menu_footer.html"}

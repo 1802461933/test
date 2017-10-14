@@ -1,0 +1,37 @@
+{include file="static/view/inc_header.html"}
+
+<h1>部门-全部</h1><div class="notice"></div>
+<ul id="tools">
+<li><a href="{:url('Section/add')}">新建</a></li>
+<li><a href="javascript:window.location.reload();">刷新</a></li>
+</ul>
+
+<div class="formsearch" style="display:none">
+<input id="key" value="" />
+<input type="button" class="buttonsearch" rel="?inc=admin/article_index" value="搜索" />
+</div>
+
+<table cellspacing="0" class="dataTable">
+<tr>
+<th style="width:300px;">ID</th>
+<th style="width:300px">名称</th>
+<th>权重</th>
+<th style="width:140px;">操作</th>
+</tr>
+{foreach $list['data'] as $vo}
+<tr>
+<td>{$vo['id']}</td>
+<td>{$vo['name']}</td>
+<td>{$vo['weight']}</td>
+<td><a class="btn1" href="{:url('Section/mod')}?id={$vo['id']}">修改</a>
+<a class="btn1" href="{:url('Section/del')}?id={$vo['id']}" onClick="javascript:return confirm('确定删除吗？')">删除</a>
+</td>
+</tr>
+{/foreach}
+</table>
+{$list['page']}
+<!--<div class="pages"><a href="/admin?inc=admin/article_index&page=1" class="current" >1</a></div>-->
+
+
+
+{include file="static/view/inc_footer.html"}

@@ -1,0 +1,43 @@
+{include file="static/view/inc_header.html"}
+
+<h1>文章-{$status}<em>({:count($list)})</em></h1><div class="notice"></div>
+<ul id="tools">
+<li><a href="{:url('Post/add')}">新建</a></li>
+<li><a href="javascript:window.location.reload();">刷新</a></li>
+</ul>
+
+<div class="formsearch" style="display:none">
+<input id="key" value="" />
+<input type="button" class="buttonsearch" rel="?inc=admin/article_index" value="搜索" />
+</div>
+
+<table cellspacing="0" class="dataTable">
+<tr>
+<th style="width:30px;">ID</th>
+<th>标题</th>
+<th style="width:100px;">字数</th>
+<th style="width:160px;">栏目</th>
+<th style="width:90px;">添加时间</th>
+<th style="width:80px;">状态</th>
+<th style="width:140px;">操作</th>
+</tr>
+{foreach $list['data'] as $vo}
+<tr>
+<td>{$vo['id']}</td>
+<td>{$vo['title']}</td>
+<td>{$vo['size']}</td>
+<td>{$vo['name']}</td>
+<td>{$vo['dateline']}</td>
+<td>{:config("post_status.$vo[status]")}</td>
+<td><a class="btn1" href="{:url('Post/mod')}?id={$vo['id']}">修改</a>
+<a class="btn1" href="{:url('Post/del')}?id={$vo['id']}" onClick="javascript:return confirm('确定删除吗？')">删除</a>
+</td>
+</tr>
+{/foreach}
+</table>
+{$list['page']}
+<!--<div class="pages"><a href="/admin?inc=admin/article_index&page=1" class="current" >1</a></div>-->
+
+
+
+{include file="static/view/inc_footer.html"}

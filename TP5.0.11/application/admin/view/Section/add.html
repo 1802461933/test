@@ -1,0 +1,25 @@
+{include file="static/view/inc_header.html"}
+
+<h1>新建部门</h1>
+<form name="form1" id="form1" action="{:url('Section/add')}" method="post" >
+<input type="hidden" name="back_url" id="back_url" value="" />
+<table cellpadding="6" cellspacing="0" class="formTable">
+<tr>
+<th>名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;称</th>
+<td><input type="text" name="name" id="title" size="50" maxlength="100" minlength="2" required /> <span></span></td>
+</tr>
+
+<tr>
+<th>排序权值</th>
+<td><input type="text" name="weight" id="point" size="5" maxlength="6" value="0" /> <span></span></td>
+</tr>
+
+</table>
+
+<div class="fixed_buttonbox">
+<input type="submit" name="ok" id="ok_back" value="保存并返回" accesskey="s" />
+<input type="button" name="cancel" id="cancel" value="取消(×)" />
+</div>
+</form>
+
+{include file="static/view/inc_footer.html" /}
