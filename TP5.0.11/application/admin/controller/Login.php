@@ -3,7 +3,6 @@ namespace app\admin\controller;
 use think\Controller;
 use think\Session;
 class Login extends Controller{
-    
      /*返回admin模型*/
     public function adminModel(){
         $adminModel = model('Admin');
@@ -22,7 +21,7 @@ class Login extends Controller{
                     Session::set('name',$data['name']);
                     Session::set('site_id',$data['site_id']);
                     Session::set('section_id',$data['section_id']);
-                    Session::set('group',$data['group']);
+                    Session::set('group_id',$data['group_id']);
                     $sites_data = $this->adminModel()->get_find("sites",$data['site_id']);
                     Session::set('site_name', $sites_data['name']);
                     $this->success('登录成功','Index/index');
@@ -33,6 +32,7 @@ class Login extends Controller{
                $this->error('帐号输入错误');
             }
         }
+
        return view();
     }
     /*注销方法*/

@@ -7,24 +7,24 @@
 <table cellpadding="6" cellspacing="0" class="formTable">
 <tr>
 <th>用户名</th>
-<td><input type="text" name="uname" id="title" value="{$user_info['uname']}" size="50" maxlength="100" /> <span></span></td>
+<td><input type="text" name="uname" id="uname" value="{$user_info['uname']}" size="50" maxlength="100" /> <span></span></td>
 </tr>
 <tr>
 <tr>
 <th>姓名</th>
-<td><input type="text" name="name" id="title" value="{$user_info['name']}" size="50" maxlength="100" /> <span></span></td>
+<td><input type="text" name="name" id="name" value="{$user_info['name']}" size="50" maxlength="100" /> <span></span></td>
 </tr>
 <tr>
 <th>笔名</th>
-<td><input type="text" name="penname" id="title" value="{$user_info['penname']}" size="50" maxlength="100" /> <span></span></td>
+<td><input type="text" name="penname" id="penname" value="{$user_info['penname']}" size="50" maxlength="100" /> <span></span></td>
 </tr>
 <tr>
 <th>部门</th>
 <td>
-<select name="section" id="status">
+<select name="section" id="section">
 <option value="">请选择</option>
 {foreach $select_list as $vo}
-<option value="{$vo['id']}" <?php if($vo['id']==$user_info['group']){echo "selected=selected";}?>>{$vo['name']}</option>
+<option value="{$vo['id']}" <?php if($vo['id']==$user_info['section_id']){echo "selected=selected";}?>>{$vo['name']}</option>
 {/foreach}
 </select><span></span>
 </td>
@@ -32,10 +32,10 @@
 <tr>
 <th>用户组</th>
 <td>
-<select name="group" id="status">
+<select name="group_id" id="group_id">
 <option value="">请选择</option>
 {foreach $group_list as $key=>$vo}
-<option value="{$key}" <?php if($key==$user_info['section_id']){echo "selected=selected";}?> >{$vo}</option>
+<option value="{$key}" <?php if($key==$user_info['group_id']){echo "selected=selected";}?> >{$vo}</option>
 {/foreach}
 </select><span></span>
 </td>

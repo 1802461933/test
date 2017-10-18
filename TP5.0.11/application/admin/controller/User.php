@@ -4,7 +4,7 @@ use think\Request;
 class User extends Common{
     public function __construct(){
         parent::__construct();
-        if(input('session.group')<99){
+        if(input('session.group_id')<99){
             $this->error('当前没有操作权限');
         }
     }
@@ -17,12 +17,14 @@ class User extends Common{
     
     /*内容页控制器*/
     public function index(Request $res){
-        $group_id =$res->param('group','0','trim');
+        //dump($this);
+        $group_id =$res->param('group_id','0','trim');
         $data = $this->adminModel()->get_user_list($group_id);
-        return view('index',[
-            'list' =>$data,
-            'group_id' => $group_id
-        ]);
+        $this->assign('page',$data['page']);
+        $this->assign('data',$data['data']);
+        $this->assign('section',$data['section']);
+        $this->assign('group_id',$group_id);
+        return $this->fetch();
     }
     
     /*侧边栏控制器*/
@@ -52,7 +54,7 @@ class User extends Common{
                     'password' => md5($password.$salt),
                     'name' => input('post.name','','trim'),
                     'penname' => input('post.penName','','trim'),
-                    'group' => input('post.group','1','trim'),
+                    'group_id' => input('post.group_id','1','trim'),
                     'dateline' => time()
                 ]; 
                 $request = $this->adminModel()->add('users',$data);
@@ -73,12 +75,20 @@ class User extends Common{
     
     public function del(){
         $id = input('get.id');
-        $request = $this->adminModel()->del('users',$id);
-        if($request){
-            $this->success('删除成功','User/index');
+        $where = 'user_id='.$id.' or editor_id='.$id;        
+        $request_del = $this->adminModel()->isNull('posts',$where);
+        if($request_del){
+            $this->error('删除失败:请先清除用户相关稿件');
         }else{
-            $this->error('删除失败');
+            $request = $this->adminModel()->del('users',$id);
+            if($request){
+                $this->success('删除成功','User/index');
+            }else{
+                $this->error('删除失败');
+            }
         }
+        
+       
     }
     
     public function mod(Request $res){
@@ -92,7 +102,7 @@ class User extends Common{
                 'uname'=> input('post.uname'),
                 'name' =>input('post.name'),
                 'penname'=>input('post.penname'),
-                'group'=>input('post.group'),
+                'group_id'=>input('post.group_id'),
                 'section_id'=>input('post.section')
             ];
             $request = $this->adminModel()->mod('users',$data,$cid);
@@ -134,39 +144,7 @@ class User extends Common{
         ]);
     }
     
-     public function userPassword(Request $res){
-         $id = input('session.user_id');
-         if($res->isPost()){
-             $password = input('post.password','','trim,md5');
-             if($password){
-                 $user_info = $this->adminModel()->get_find('users',$id);
-                 if(md5($password.$user_info['salt'])==$user_info['password']){
-                     $new_password = input('post.new_password','','trim,md5');
-                     if($new_password){
-                         $salt = rand(1000,9999);
-                         $true_password = md5($new_password.$salt);
-                        $data = [
-                            'salt' => $salt,
-                            'password' => $true_password
-                        ];
-                        $request = $this->adminModel()->mod('users',$data,$id);
-                        if($request){
-                            $this->success('修改成功','Index/index');
-                        }else{
-                            $this->error('修改失败','Index/index');
-                        }
-                     }else{
-                         $this->error('新密码不能为空');
-                     } 
-                 }else{
-                     $this->error('旧密码错误');
-                 }
-             }else{
-                     $this->error('旧密码不能为空');
-            }
-         }
-         return view('userPassword');
-     }
+
 }
 
 ?>

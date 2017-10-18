@@ -1,0 +1,41 @@
+{include file="static/view/inc_header.html"}
+
+<h1>按部门统计-{$y}{$m}<em></em></h1><div class="notice"></div>
+<ul id="tools">
+
+<li {if condition="!$m"}class="current"{/if}><a href="{:url('Stat/section?y='.$y)}">全年</a></li>
+{for start="1" end="13"  step="1" }
+<li {if condition="$m==$i"}class="current"{/if}><a href="{:url('Stat/section?y='.$y.'&m='.$i)}">{$i}月份</a></li>
+{/for}
+<li><a href="javascript:window.location.reload();">刷新</a></li>
+
+</ul>
+<table cellspacing="0" class="dataTable">
+<tr>
+<th style="width:50px;">ID</th>
+<th >姓名</th>
+<th style="width:150px;">投稿数量</th>
+<th style="width:150px;">采纳数量</th>
+<th style="width:150px;">弃用数量</th>
+<th style="width:150px;">稿费合计</th>
+<th style="width: 150px;">详情</th>
+</tr>
+
+{foreach $list as $vo}
+<tr>
+<td>{$vo.id}</td>
+<td>{$vo.name}</td>
+<td>{$vo.count}</td>
+<td>{$vo.count_accept}</td>
+<td>{$vo.count_refuse}</td>
+<td>{$vo.payment}</td>
+<td><a class="btn1" href="{:url('Stat/sectionInfo?id='.$vo.id.'&y='.$y.'&m='.$m.'&name='.$vo.name)}">详情</a></td>
+</tr>
+{/foreach}
+
+</table>
+<!--<div class="pages"><a href="/admin?inc=admin/article_index&page=1" class="current" >1</a></div>-->
+
+
+
+{include file="static/view/inc_footer.html"}

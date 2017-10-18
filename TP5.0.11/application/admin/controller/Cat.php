@@ -4,7 +4,7 @@ use think\Request;
 class Cat extends Common{
      public function __construct(){
         parent::__construct();
-        if(input('session.group')<99){
+        if(input('session.group_id')<99){
             $this->error('当前没有操作权限');
         }
     }
@@ -77,13 +77,36 @@ class Cat extends Common{
     
     /*删除栏目*/
     public function del(){
-        $cat_id = input('get.cat_id',"","trim,addslashes");
-        $return_value = $this->adminModel()->del('cats',$cat_id);
-        if($return_value){
-            $this->success('删除成功','Cat/index');
-        }else{
-            $this->error('删除失败');
+        $id = input('get.cat_id',"","trim,addslashes");
+        $ids = ','.$id.',';
+        $where = "CONCAT(',',cat_id,',') LIKE '%".$ids."%'";        
+        $request_del = $this->adminModel()->isNull('posts',$where);
+        $status = $this->adminModel()->get_find('cats',$id);
+        if($status['status']==1){
+            $this->error('默认媒体不能删除');
         }
+        if($request_del){
+            $this->error('删除失败:请先清除媒体相关稿件');
+        }else{
+            $return_value = $this->adminModel()->del('cats',$id);
+            if($return_value){
+                $this->success('删除成功','Cat/index');
+            }else{
+                $this->error('删除失败');
+            }
+        }
+    }
+    
+    
+    /*设为默认媒体*/
+    public function status(){
+      $id = input('get.cat_id');
+      $request = $this->adminModel()->edit_status($id);
+      if($request){
+          $this->success('设置成功','Cat/index');
+      }else{
+          $this->error('设置失败');
+      }
     }
 }
 ?>

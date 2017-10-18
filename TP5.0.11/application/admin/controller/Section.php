@@ -5,7 +5,7 @@ class Section extends Common{
     /*构造函数初始权限判断*/
     public function __construct(){
         parent::__construct();
-        if(input('session.group')<99){
+        if(input('session.group_id')<99){
             $this->error('没有访问权限');
         }
     }
@@ -56,14 +56,18 @@ class Section extends Common{
     public function del(){
         $id = input('get.id');
         if($id){
-           $request = $this->adminModel()->del('sections',$id);
-            if($request){
-                $this->success('删除成功','Section/index');
+            $where = 'section_id='.$id;        
+            $request_del = $this->adminModel()->isNull('users',$where);
+            if($request_del){
+                $this->error('删除失败:请先清除部门下的用户');
             }else{
-                $this->error('删除失败');
+                $request = $this->adminModel()->del('sections',$id);
+                if($request){
+                    $this->success('删除成功','Section/index');
+                }else{
+                    $this->error('删除失败');
+                }
             }
-        }else{
-            $this->error('删除失败');
         }
     }
     

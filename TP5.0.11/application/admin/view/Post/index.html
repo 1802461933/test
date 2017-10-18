@@ -2,7 +2,7 @@
 
 <h1>稿件-{if condition="$key"}搜索"{$key}"{else/}{$status}{/if}<em></em></h1><div class="notice"></div>
 <ul id="tools">
-{if condition="input('session.group')==1"}
+{if condition="input('session.group_id')==1"}
 <li><a href="{:url('Post/add')}">写稿件</a></li>
 {/if}
 <li><a href="javascript:void(0);" class="tosearch">搜索</a></li>
@@ -17,43 +17,57 @@
 
 <table cellspacing="0" class="dataTable">
 <tr>
-<th style="width:30px;">ID</th>
+<th style="width:50px;">ID</th>
 <th>标题</th>
-<th style="width:100px;">字数</th>
-<th style="width:160px;">栏目</th>
+<th style="width:60px;">字数</th>
+<th style="width:80px;">投稿人</th>
 <th style="width:160px;">投稿时间</th>
-<th style="width:120px;">状态</th>
+<th style="width: 80px;">审核人</th>
+<th style="width: 160px;">审核时间</th>
+<th style="width:100px;">状态</th>
 <th style="width:210px;">操作</th>
 </tr>
-{foreach $list['data'] as $vo}
+{foreach $data as $vo}
 <tr>
 <td>{$vo['id']}</td>
 <td>{$vo['title']}</td>
 <td>{$vo['size']}</td>
-<td>{$vo['name']}</td>
+<td>{$user[$vo['user_id']]}</td>
 <td>{$vo['dateline']|date='Y-m-d H:i',###}</td>
+<td>{if  condition="$vo['editor_id']"}{$user[$vo['editor_id']]}{/if}</td>
+<td>{$vo['edittime']|date='Y-m-d H:i',###}</td>
+
 
 <td class="statusColor{$vo['status']}">{:config("post_status.$vo[status]")}</td>
 <td>
-	{if condition="input('session.group')>1"}
-	<a class="btn1" href="{:url('Post/mod')}?id={$vo['id']}">退回</a>
-	<a class="btn1" href="{:url('Post/mod')}?id={$vo['id']}">采纳</a>
-	<a class="btn1" href="{:url('Post/mod')}?id={$vo['id']}">弃用</a>
-	{/if}
-	{if condition="input('session.group')==1"}
-	{if condition="$vo['status']>0 and $vo['status']<4" }
-	<a class="btn1" href="{:url('Post/mod')}?id={$vo['id']}">修改</a>
-	<a class="btn1" href="{:url('Post/del')}?id={$vo['id']}" onClick="javascript:return confirm('确定删除吗？')">删除</a>
-	{else /}
-	<span class="btn1" >修改</span>
-	<span class="btn1" >删除</span>
-	{/if}
-	{/if}
+    {if condition="input('session.group_id')>1"}
+        {if condition="($vo['status']==-1 or $vo['status']==4 or $vo['status']==3) and input('session.group_id')==9"}
+            <span class="btn1" >审批</span>
+
+        {else /}
+            <a class="btn1" href="{:url('Post/status')}?id={$vo['id']}">审批</a>
+        {/if}	
+        {if condition="$vo['status']==4"}
+            <a class="btn1" href="{:url('Post/addCat')}?id={$vo['id']}">媒体</a>		
+        {/if}
+    {/if}
+    {if condition="input('session.group_id')>9"}
+        <a class="btn1" href="{:url('Post/del')}?id={$vo['id']}" onClick="javascript:return confirm('确定删除吗？')">删除</a>
+    {/if}
+    {if condition="input('session.group_id')==1"}
+    {if condition="$vo['status']>0 and $vo['status']<4" }
+    <a class="btn1" href="{:url('Post/mod')}?id={$vo['id']}">修改</a>
+    <a class="btn1" href="{:url('Post/del')}?id={$vo['id']}" onClick="javascript:return confirm('确定删除吗？')">删除</a>
+    {else /}
+    <span class="btn1" >修改</span>
+    <span class="btn1" >删除</span>
+    {/if}
+    {/if}
 </td>
 </tr>
 {/foreach}
 </table>
-{$list['page']}
+{$page}
 <!--<div class="pages"><a href="/admin?inc=admin/article_index&page=1" class="current" >1</a></div>-->
 
 

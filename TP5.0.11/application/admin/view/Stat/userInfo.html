@@ -1,0 +1,39 @@
+{include file="static/view/inc_header.html"}
+
+<h1>{foreach $user as $key=>$v}{if condition="$key==$id"}{$v}{/if}{/foreach}的稿件{$y.$m}<em></em></h1><div class="notice"></div>
+<ul id="tools">
+<li><a href="{:url('Stat/user?y='.$y.'&m='.$m)}">返回</a></li>
+<li><a href="javascript:window.location.reload();">刷新</a></li>
+</ul>
+
+<table cellspacing="0" class="dataTable">
+<tr>
+<th style="width:50px;">ID</th>
+<th>标题</th>
+<th style="width:60px;">字数</th>
+<th style="width:160px;">投稿时间</th>
+<th style="width: 80px;">审核人</th>
+<th style="width: 160px;">审核时间</th>
+<th style="width:100px;">状态</th>
+<th style="width:100px;">稿费</th>
+</tr>
+
+{foreach $data as $vo}
+<tr>
+<td>{$vo['id']}</td>
+<td>{$vo['title']}</td>
+<td>{$vo['size']}</td>
+<td>{$vo['dateline']|date='Y-m-d H:i',###}</td>
+<td>{if  condition="$vo['editor_id']"}{$user[$vo['editor_id']]}{/if}</td>
+<td>{$vo['edittime']|date='Y-m-d H:i',###}</td>
+<td class="statusColor{$vo['status']}">{:config("post_status.$vo[status]")}</td>
+<td>{$vo['payment']}</td>
+</tr>
+{/foreach}
+</table>
+{$page}
+<!--<div class="pages"><a href="/admin?inc=admin/article_index&page=1" class="current" >1</a></div>-->
+
+
+
+{include file="static/view/inc_footer.html"}

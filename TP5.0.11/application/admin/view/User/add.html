@@ -6,26 +6,24 @@
 <table cellpadding="6" cellspacing="0" class="formTable">
 <tr>
 <th>用户名</th>
-<td><input type="text" name="username" id="title" size="50" maxlength="100" minlength="2" required /> <span></span></td>
+<td><input type="text" name="username" id="username" size="50" maxlength="100" minlength="2" required /> <span></span></td>
 </tr>
 <tr>
 <th>密码</th>
-<td><input type="password" name="password" id="title" size="50" maxlength="100" minlength="2" required /> <span></span></td>
+<td><input type="password" name="password" id="password" size="50" maxlength="100" minlength="2" required /> <span></span></td>
 </tr>
 <tr>
 <th>姓名</th>
-<td><input type="text" name="name" id="title" size="50" maxlength="100" minlength="2"  /> <span></span></td>
+<td><input type="text" name="name" id="name" size="50" maxlength="100" minlength="2"  /> <span></span></td>
 </tr>
-
 <tr>
 <th>笔名</th>
-<td><input type="text" name="penName" id="title" size="50" maxlength="100" minlength="2"  /> <span></span></td>
+<td><input type="text" name="penname" id="penname" size="50" maxlength="100" minlength="2"  /> <span></span></td>
 </tr>
-
 <tr>
 <th>部门</th>
 <td>
-<select name="section" id="status">
+<select name="section" id="section">
 <option value="1" selected="selected">请选择</option>
 {foreach $select_list as $vo}
 <option value="{$vo['id']}">{$vo['name']}</option>
@@ -36,7 +34,7 @@
 <tr>
 <th>用户组</th>
 <td>
-<select name="group" id="status">
+<select name="group_id" id="group_id">
 <option value="1" selected="selected">请选择</option>
 {foreach $group_list as $key=>$vo}
 <option value="{$key}">{$vo}</option>

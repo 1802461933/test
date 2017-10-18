@@ -2,12 +2,13 @@
 namespace app\admin\controller;
 use think\Controller;
 class Common extends Controller{
+    
     /*判断登陆*/
     public function __construct(){
+        parent::__construct();
         if(!input('session.user_id')){
              $this->success('会话时间已过期请重新登录',"Login/login");
         }
-        
     }
     
     public function DeleteHtml($str) 

@@ -15,8 +15,8 @@
 <tr>
 <th style="width:50px;">ID</th>
 <th >名称</th>
-<th style="width:300px;">稿费</th>
-<th style="width:150px;">操作</th>
+<th style="width:300px;">稿费(元/篇)</th>
+<th style="width:280px;">操作</th>
 </tr>
 {foreach $list['data'] as $vo}
 <tr>
@@ -25,6 +25,11 @@
 <td>{$vo['payment']}</td>
 <td><a class="btn1" href="{:url('Cat/mod')}?cat_id={$vo['id']}">修改</a>
 <a class="btn1" href="{:url('Cat/del')}?cat_id={$vo['id']}" onClick="javascript:return confirm('确定删除吗？')">删除</a>
+{if condition="$vo['status']!=1"}
+<a class="btn1" href="{:url('Cat/status')}?cat_id={$vo['id']}" >设为默认媒体</a>
+{else /}
+<span class="btn1" >设为默认媒体</span>
+{/if}
 </td>
 </tr>
 {/foreach}

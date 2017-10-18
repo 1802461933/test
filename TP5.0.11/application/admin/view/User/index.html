@@ -13,32 +13,32 @@
 
 <table cellspacing="0" class="dataTable">
 <tr>
-<th style="width:30px;">ID</th>
-<th style="width:90px;">部门</th>
-<th style="width:100px;">用户账号</th>
+<th style="width:50px;">ID</th>
+<th style="width:120px;">所在部门</th>
+<th style="width:120px;">用户账号</th>
 <th style="width:160px;">姓名</th>
 <th>笔名</th>
-<th style="width:80px;">用户组</th>
+<th style="width:120px;">所属用户组</th>
 <th style="width:140px;">添加时间</th>
 <th style="width:230px;">操作</th>
 </tr>
-{foreach $list['data'] as $key=>$vo}
+{foreach $data as $key=>$vo}
 <tr>
 <td>{$vo['id']}</td>
-<td>{$vo['section_id']}</td>
+<td>{$section[$vo['section_id']]}</td>
 <td>{$vo['uname']}</td>
 <td>{$vo['name']}</td>
 <td>{$vo['penname']}</td>
-<td>{:config('user_group.'.$vo['group'])}</td>
+<td>{:config('user_group.'.$vo['group_id'])}</td>
 <td>{$vo['dateline']|date='Y-m-d H:i',###}</td>
-<td><a class="btn1" href="{:url('User/mod')}?id={$vo['id']}">修改</a>
-    <a class="btn1" href="{:url('User/modPassword')}?id={$vo['id']}">密码修改</a>
+<td><a class="btn1" href="{:url('User/mod')}?id={$vo['id']}">改资料</a>
+    <a class="btn1" href="{:url('User/modPassword')}?id={$vo['id']}">改密码</a>
 <a class="btn1" href="{:url('User/del')}?id={$vo['id']}" onClick="javascript:return confirm('确定删除吗？')">删除</a>
 </td>
 </tr>
 {/foreach}
 </table>
-{$list['page']}
+{$page}
 <!--<div class="pages"><a href="/admin?inc=admin/article_index&page=1" class="current" >1</a></div>-->
 
 

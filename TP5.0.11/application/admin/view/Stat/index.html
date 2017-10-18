@@ -1,43 +1,207 @@
-{include file="static/view/inc_header.html"}
-
-<h1>文章-{$status}<em>({:count($list)})</em></h1><div class="notice"></div>
-<ul id="tools">
-<li><a href="{:url('Post/add')}">新建</a></li>
-<li><a href="javascript:window.location.reload();">刷新</a></li>
-</ul>
-
-<div class="formsearch" style="display:none">
-<input id="key" value="" />
-<input type="button" class="buttonsearch" rel="?inc=admin/article_index" value="搜索" />
-</div>
-
-<table cellspacing="0" class="dataTable">
-<tr>
-<th style="width:30px;">ID</th>
-<th>标题</th>
-<th style="width:100px;">字数</th>
-<th style="width:160px;">栏目</th>
-<th style="width:90px;">添加时间</th>
-<th style="width:80px;">状态</th>
-<th style="width:140px;">操作</th>
-</tr>
-{foreach $list['data'] as $vo}
-<tr>
-<td>{$vo['id']}</td>
-<td>{$vo['title']}</td>
-<td>{$vo['size']}</td>
-<td>{$vo['name']}</td>
-<td>{$vo['dateline']}</td>
-<td>{:config("post_status.$vo[status]")}</td>
-<td><a class="btn1" href="{:url('Post/mod')}?id={$vo['id']}">修改</a>
-<a class="btn1" href="{:url('Post/del')}?id={$vo['id']}" onClick="javascript:return confirm('确定删除吗？')">删除</a>
-</td>
-</tr>
-{/foreach}
-</table>
-{$list['page']}
-<!--<div class="pages"><a href="/admin?inc=admin/article_index&page=1" class="current" >1</a></div>-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+	<div id="pic1" style="width: 37%;height: 400px;float:left;margin: 80px 0;"></div>
+<div id="main" style="width: 60%;height: 400px;float:left;margin: 80px 0;"></div>
 
 
 
-{include file="static/view/inc_footer.html"}
+<div id="pic3" style="width:100%;height: 350px;float:left;margin: 80px 0;"></div>
+
+<script src="__JS__/echarts.min.js"></script>
+<!--折线图-->
+<script>
+
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+    // 指定图表的配置项和数据
+    option = {
+        title: {
+            text: '交通运行指数',
+            x:'left'
+        },
+        tooltip: {
+            trigger: 'axis'
+        },
+        legend: {
+            show:'false',
+            data:['2016年9月9日']
+
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        dataRange:{
+            backgroundColor:'#ff0000',
+            show:false
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: ['00:00','02:00','04:00','06:00','08:00','10:00','12:00','14:00','16:00','18:00','20:00','22:00','24:00']
+        },
+        yAxis: {
+            type: 'value',
+            splitLine:{show: false},
+            data:[0,2,4,6,8,10],
+            max:10,
+            min:0,
+            splitNumber:5,
+            splitArea:{ show:true,
+                areaStyle:{
+                    color: ['rgba(76,167,76,1)','rgba(183,219,76,1)','rgba(255,255,76,1)','rgba(255,193,76,1)','rgba(255,76,76,1)']
+                }
+            }
+        },
+        series: [
+            {
+                name:'2016年9月9日',
+                type:'line',
+                smooth:true, //把曲线变圆滑
+                stack: '总量',
+                data:[3,2,6,9,5,8,5,6,8,9,7,9,8]
+            }
+
+        ]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+<!--饼图-->
+<script>
+    var myCharts1 = echarts.init(document.getElementById('pic1'));
+    option = {
+        title : {
+            text: '某站点用户访问来源',
+            subtext: '纯属虚构',
+            x:'center'
+        },
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        legend: {
+            orient: 'vertical',
+            left: 'left',
+            data: ['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
+        },
+        series : [
+            {
+                name: '访问来源',
+                type: 'pie',
+                radius : '65%',
+                center: ['50%', '60%'],
+                data:[
+                    {value:335, name:'直接访问'},
+                    {value:310, name:'邮件营销'},
+                    {value:234, name:'联盟广告'},
+                    {value:135, name:'视频广告'},
+                    {value:1548, name:'搜索引擎'}
+                ],
+                itemStyle: {
+                    emphasis: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                }
+            }
+        ]
+    };
+
+    myCharts1.setOption(option);
+</script>
+<!--柱状图-->
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart2 = echarts.init(document.getElementById('pic3'));
+    // 指定图表的配置项和数据
+    option2 = {
+        title : {
+            text: '交通运行指数',
+            /*subtext: '纯属虚构'  //二级标题*/
+        },
+        tooltip : {
+            trigger: 'axis'
+        },
+        legend: {
+            data:['2016-10-5','2016-10-10']
+        },
+        /*  toolbox: {
+         show : true,
+         feature : {
+         mark : {show: true},
+         dataView : {show: true, readOnly: false},
+         magicType : {show: true, type: ['line', 'bar']},
+         restore : {show: true},
+         saveAsImage : {show: true}
+         }
+         }, //工具箱   */
+        calculable : true,
+        xAxis : [
+            {
+                type : 'category',
+                data : ['早高峰','晚高峰','全天']
+            }
+        ],
+        yAxis : [
+            {
+
+                type : 'value',
+                data:[2,4,6,8,10],
+                splitArea:{
+                    areaStyle:{
+                        color: ['rgba(76,167,76,1)','rgba(183,219,76,1)','rgba(255,255,76,1)','rgba(255,193,76,1)','rgba(255,76,76,1)']
+                    }
+                }
+            }
+
+
+
+        ],
+        series : [
+            {
+                name:'2016-10-5',
+                type:'bar',
+                data:[3,6,9],
+                barWidth:30
+                /* markPoint : {
+                 data : [
+                 {type : 'max', name: '最大值'},//标注出来最大值
+                 {type : 'min', name: '最小值'}//标注出来最小值
+                 ]
+                 },*/
+
+            },
+            {
+                name:'2016-10-10',
+                type:'bar',
+                data:[4,6,8],
+                barWidth:30
+                /*  markPoint : {
+                 data : [
+                 {name : '年最高', value : 182.2, xAxis: 7, yAxis: 183, },
+                 {name : '年最低', value : 2.3, xAxis: 11, yAxis: 3}
+                 ]
+                 },*/
+
+            }
+        ]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart2.setOption(option2);
+
+    init();
+    setInterval("addThemeRange()", 30000);
+</script>
+</body>
+</html>

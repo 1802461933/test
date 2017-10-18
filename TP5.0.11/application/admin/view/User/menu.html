@@ -2,8 +2,9 @@
 
 <ul class="menu">
 <li class="group">用户组</li>
+<li><a href="{:url('User/index')}" class="current" target="main">全部</a></li>
 {foreach $list as $key=>$vo}
-<li><a href="{:url('User/index?group='.$key)}" target="main">{$vo}</a></li>
+<li><a href="{:url('User/index?group_id='.$key)}" target="main">{$vo}</a></li>
 {/foreach}
 </ul>
 
