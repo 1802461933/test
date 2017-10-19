@@ -5,83 +5,19 @@
     <title>Title</title>
 </head>
 <body>
-	<div id="pic1" style="width: 37%;height: 400px;float:left;margin: 80px 0;"></div>
-<div id="main" style="width: 60%;height: 400px;float:left;margin: 80px 0;"></div>
+<div id="pic1" style="width: 37%;height: 400px;float:left;margin: 30px 0;"></div>
+<div id="main" style="width: 60%;height: 400px;float:left;margin: 30px 0;"></div>
 
-
-
-<div id="pic3" style="width:100%;height: 350px;float:left;margin: 80px 0;"></div>
 
 <script src="__JS__/echarts.min.js"></script>
-<!--折线图-->
-<script>
 
-    // 基于准备好的dom，初始化echarts实例
-    var myChart = echarts.init(document.getElementById('main'));
-    // 指定图表的配置项和数据
-    option = {
-        title: {
-            text: '交通运行指数',
-            x:'left'
-        },
-        tooltip: {
-            trigger: 'axis'
-        },
-        legend: {
-            show:'false',
-            data:['2016年9月9日']
-
-        },
-        grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
-            containLabel: true
-        },
-        dataRange:{
-            backgroundColor:'#ff0000',
-            show:false
-        },
-        xAxis: {
-            type: 'category',
-            boundaryGap: false,
-            data: ['00:00','02:00','04:00','06:00','08:00','10:00','12:00','14:00','16:00','18:00','20:00','22:00','24:00']
-        },
-        yAxis: {
-            type: 'value',
-            splitLine:{show: false},
-            data:[0,2,4,6,8,10],
-            max:10,
-            min:0,
-            splitNumber:5,
-            splitArea:{ show:true,
-                areaStyle:{
-                    color: ['rgba(76,167,76,1)','rgba(183,219,76,1)','rgba(255,255,76,1)','rgba(255,193,76,1)','rgba(255,76,76,1)']
-                }
-            }
-        },
-        series: [
-            {
-                name:'2016年9月9日',
-                type:'line',
-                smooth:true, //把曲线变圆滑
-                stack: '总量',
-                data:[3,2,6,9,5,8,5,6,8,9,7,9,8]
-            }
-
-        ]
-    };
-
-    // 使用刚指定的配置项和数据显示图表。
-    myChart.setOption(option);
-</script>
 <!--饼图-->
 <script>
     var myCharts1 = echarts.init(document.getElementById('pic1'));
     option = {
         title : {
-            text: '某站点用户访问来源',
-            subtext: '纯属虚构',
+            text: '稿件状态统计',
+            subtext: '全部',
             x:'center'
         },
         tooltip : {
@@ -91,20 +27,20 @@
         legend: {
             orient: 'vertical',
             left: 'left',
-            data: ['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
+            data: [{foreach $list as $v}'{$v['name']}',{/foreach}]
         },
+        color:['#8bc34a','#00bcd4','#ba68c8','#ffa726','#ef5350','#4aa8f3'],
         series : [
             {
-                name: '访问来源',
+                name: '稿件数量',
                 type: 'pie',
                 radius : '65%',
                 center: ['50%', '60%'],
                 data:[
-                    {value:335, name:'直接访问'},
-                    {value:310, name:'邮件营销'},
-                    {value:234, name:'联盟广告'},
-                    {value:135, name:'视频广告'},
-                    {value:1548, name:'搜索引擎'}
+                	{foreach $list as $v}
+               			{value:{$v['count']}, name:'{$v['name']}'},
+               		{/foreach}
+  
                 ],
                 itemStyle: {
                     emphasis: {
@@ -119,89 +55,60 @@
 
     myCharts1.setOption(option);
 </script>
-<!--柱状图-->
-<script type="text/javascript">
+
+
+<!--折线图-->
+<script>
+
     // 基于准备好的dom，初始化echarts实例
-    var myChart2 = echarts.init(document.getElementById('pic3'));
+    var myChart = echarts.init(document.getElementById('main'));
     // 指定图表的配置项和数据
-    option2 = {
-        title : {
-            text: '交通运行指数',
-            /*subtext: '纯属虚构'  //二级标题*/
+    option = {
+        title: {
+            text: '年度稿件数量统计'
         },
-        tooltip : {
+        tooltip: {
             trigger: 'axis'
         },
         legend: {
-            data:['2016-10-5','2016-10-10']
+            data:['{:date("Y")-1}年','{:date("Y")}年']
         },
-        /*  toolbox: {
-         show : true,
-         feature : {
-         mark : {show: true},
-         dataView : {show: true, readOnly: false},
-         magicType : {show: true, type: ['line', 'bar']},
-         restore : {show: true},
-         saveAsImage : {show: true}
-         }
-         }, //工具箱   */
-        calculable : true,
-        xAxis : [
-            {
-                type : 'category',
-                data : ['早高峰','晚高峰','全天']
-            }
-        ],
-        yAxis : [
-            {
-
-                type : 'value',
-                data:[2,4,6,8,10],
-                splitArea:{
-                    areaStyle:{
-                        color: ['rgba(76,167,76,1)','rgba(183,219,76,1)','rgba(255,255,76,1)','rgba(255,193,76,1)','rgba(255,76,76,1)']
-                    }
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
+        },
+        yAxis: {
+            type: 'value',
+            splitLine:{show: false},
+            max:{$max},
+            min:0,
+            splitNumber:5,
+            splitArea:{ show:true,
+                areaStyle:{
+                    color: ['rgba(76,167,76,1)','rgba(183,219,76,1)','rgba(255,255,76,1)','rgba(255,193,76,1)','rgba(255,76,76,1)']
                 }
             }
-
-
-
-        ],
-        series : [
-            {
-                name:'2016-10-5',
-                type:'bar',
-                data:[3,6,9],
-                barWidth:30
-                /* markPoint : {
-                 data : [
-                 {type : 'max', name: '最大值'},//标注出来最大值
-                 {type : 'min', name: '最小值'}//标注出来最小值
-                 ]
-                 },*/
-
+        },
+        series: [{
+                name:'{:date("Y")-1}年',
+                type:'line',
+                smooth:true, //把曲线变圆滑
+                data:[ {foreach $last_year as $k=>$s}{$s['count'].','}{/foreach}]
             },
             {
-                name:'2016-10-10',
-                type:'bar',
-                data:[4,6,8],
-                barWidth:30
-                /*  markPoint : {
-                 data : [
-                 {name : '年最高', value : 182.2, xAxis: 7, yAxis: 183, },
-                 {name : '年最低', value : 2.3, xAxis: 11, yAxis: 3}
-                 ]
-                 },*/
-
+                name:'{:date("Y")}年',
+                type:'line',
+                smooth:true, //把曲线变圆滑
+                data:[{foreach $this_year as $key=>$val}{$val['count'].','}{/foreach}]
             }
+             
         ]
+        
     };
 
     // 使用刚指定的配置项和数据显示图表。
-    myChart2.setOption(option2);
-
-    init();
-    setInterval("addThemeRange()", 30000);
+    myChart.setOption(option);
 </script>
 </body>
 </html>

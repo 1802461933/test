@@ -17,6 +17,7 @@
 <th style="width: 160px;">审批时间</th>
 <th style="width:100px;">状态</th>
 <th style="width:100px;">稿费</th>
+<th style="width:260px;">已发表媒体</th>
 </tr>
 
 {foreach $data as $vo}
@@ -30,6 +31,18 @@
 <td>{$vo['edittime']|date='Y-m-d H:i',###}</td>
 <td class="statusColor{$vo['status']}">{:config("post_status.$vo[status]")}</td>
 <td>{$vo['payment']}</td>
+<td>
+<?php 
+	if($vo['cat_id']){
+		$arr = explode(',',$vo['cat_id']);
+		$cats = [];
+		foreach($arr as $key=>$v){
+			$cats[] =$cat[$v];
+		}
+		echo(implode(' | ',$cats));
+	}
+	?>
+</td>
 </tr>
 {/foreach}
 </table>

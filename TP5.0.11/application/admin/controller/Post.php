@@ -13,6 +13,7 @@ class Post extends Common{
         $key = $request->param('key','','trim');
         $data = $this->adminModel()->get_post_list($status,$key);
         $post_status = config("post_status");
+        $post_status[0]="全部";
         $this->assign('page',$data['page']);
         $this->assign('data',$data['data']);
         $this->assign('user',$data['user']);
@@ -105,6 +106,9 @@ class Post extends Common{
                 'memo' => input('post.memo'),
                 'edittime'=>time(),
                 'edittime_str'=>date('YmdHis'),
+                'edit_y' => date('Y'),
+                'edit_m'=>date('n'),
+                'edit_d'=>date('j'),
                 'payment' => 0
             ];
             if(input('post.status')==4){

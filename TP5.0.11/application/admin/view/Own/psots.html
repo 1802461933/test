@@ -1,52 +1,58 @@
 {include file="static/view/inc_header.html"}
 
-<h1>{$name}的稿件{$y.$m}<em></em></h1><div class="notice"></div>
+<h1>稿件-{if condition="$key"}搜索"{$key}"{else/}{$status}{/if}<em></em></h1><div class="notice"></div>
 <ul id="tools">
-<li><a href="{:url('Stat/section?y='.$y.'&m='.$m)}">返回</a></li>
+{if condition="input('session.group_id')==1"}
+<li><a href="{:url('Post/add')}">写稿件</a></li>
+{/if}
+<li><a href="javascript:void(0);" class="tosearch">搜索</a></li>
+
 <li><a href="javascript:window.location.reload();">刷新</a></li>
 </ul>
+
+<div class="formsearch" style="{if condition="!$key"}display:none{/if}">
+<input id="key" value="{$key}" />
+<input type="button" class="buttonsearch" rel="{:url('Post/index')}" value="搜索" />
+</div>
 
 <table cellspacing="0" class="dataTable">
 <tr>
 <th style="width:50px;">ID</th>
-<th >标题111</th>
+<th>标题</th>
 <th style="width:60px;">字数</th>
 <th style="width:160px;">投稿时间</th>
 <th style="width: 80px;">审核人</th>
 <th style="width: 160px;">审核时间</th>
 <th style="width:100px;">状态</th>
-<th style="width:100px;">稿费</th>
+<th style="width:60px;">稿费</th>
 <th style="width:260px;">已发表媒体</th>
 </tr>
-
 {foreach $data as $vo}
 <tr>
 <td>{$vo['id']}</td>
 <td>{$vo['title']}</td>
 <td>{$vo['size']}</td>
+<td>{$vo['payment']}</td>
 <td>{$vo['dateline']|date='Y-m-d H:i',###}</td>
 <td>{if  condition="$vo['editor_id']"}{$user[$vo['editor_id']]}{/if}</td>
 <td>{$vo['edittime']|date='Y-m-d H:i',###}</td>
-<td class="statusColor{$vo['status']}">{:config("post_status.$vo[status]")}</td>
-<td>{$vo['payment']}</td>
 <td>
-<?php 
-	if($vo['cat_id']){
-		$arr = explode(',',$vo['cat_id']);
-		$cats = [];
-		foreach($arr as $key=>$v){
-			$cats[] =$cat[$v];
+	<?php 
+		if($vo['cat_id']){
+			$arr = explode(',',$vo['cat_id']);
+			$cats = [];
+			foreach($arr as $key=>$v){
+				$cats[] =$cat[$v];
+			}
+			echo(implode(' | ',$cats));
 		}
-		echo(implode(' | ',$cats));
-	}
 	?>
 </td>
+<td class="statusColor{$vo['status']}">{:config("post_status.$vo[status]")}</td>
 </tr>
 {/foreach}
 </table>
 {$page}
-<!--<div class="pages"><a href="/admin?inc=admin/article_index&page=1" class="current" >1</a></div>-->
-
 
 
 {include file="static/view/inc_footer.html"}

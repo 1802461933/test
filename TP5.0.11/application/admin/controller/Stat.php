@@ -16,7 +16,28 @@ class Stat extends Common{
     }
     
     public function index(){
-        return view();
+        $time = microtime();
+        dump($time);
+        $data = $this->adminModel()->get_stat_index();
+        $this_year = $this->adminModel()->get_borken_list(date('Y'));
+        $last_year = $this->adminModel()->get_borken_list(date('Y')-1);
+        $max1=array_search(max($this_year),$this_year);
+        $max2=array_search(max($last_year),$last_year);
+        if($this_year[$max1]>$last_year[$max2]){
+            $max=$this_year[$max1]["count"];
+        }else{
+            $max=$last_year[$max2]["count"];
+        }
+        $i = pow(10,(strlen($max)-1));
+        $max = (round($max/$i)+1)*$i;
+        dump(microtime());
+        dump(microtime()-$time);
+        return view('index',[
+            'list'=>$data,
+            'max' =>$max,
+            'this_year'=>$this_year,
+            'last_year'=>$last_year
+        ]);
     }
     
     
@@ -90,14 +111,18 @@ class Stat extends Common{
         }else{
             $this->error('参数错误');
         };
-        
+        $cat = $this->adminModel()->get_cats_list();
+        foreach($cat['data'] as $v){
+            $cats[$v['id']]=$v['name'];
+        }
         return view('userInfo',[
             'data'=>$data['data'],
             'user'=>$data['user'],
             'page'=>$data['page'],
             'y'=>$y,
             'm'=>$m,
-            'id'=>$id
+            'id'=>$id,
+            'cat'=>$cats
         ]);
     }
     
@@ -113,7 +138,10 @@ class Stat extends Common{
         }else{
             $this->error('参数错误');
         };
-        
+        $cat = $this->adminModel()->get_cats_list();
+        foreach($cat['data'] as $v){
+            $cats[$v['id']]=$v['name'];
+        }
         return view('sectionInfo',[
             'data'=>$data['data'],
             'user'=>$data['user'],
@@ -121,7 +149,8 @@ class Stat extends Common{
             'y'=>$y,
             'm'=>$m,
             'id'=>$id,
-            'name'=>$name
+            'name'=>$name,
+            'cat'=>$cats
         ]);
     }
       
@@ -137,6 +166,14 @@ class Stat extends Common{
         }else{
             $this->error('参数错误');
         };
+        $cat = $this->adminModel()->get_cats_list();
+        foreach($cat['data'] as $v){
+            $cats[$v['id']]=$v['name'];
+        }
+        $cat = $this->adminModel()->get_cats_list();
+        foreach($cat['data'] as $v){
+            $cats[$v['id']]=$v['name'];
+        }
         
         return view('catInfo',[
             'data'=>$data['data'],
@@ -145,7 +182,8 @@ class Stat extends Common{
             'y'=>$y,
             'm'=>$m,
             'id'=>$id,
-            'name'=>$name
+            'name'=>$name,
+            'cat'=>$cats
         ]);
     }
     

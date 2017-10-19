@@ -42,10 +42,10 @@
 <td>
     {if condition="input('session.group_id')>1"}
         {if condition="($vo['status']==-1 or $vo['status']==4 or $vo['status']==3) and input('session.group_id')==9"}
-            <span class="btn1" >审批</span>
+            <span class="btn1" >审核</span>
 
         {else /}
-            <a class="btn1" href="{:url('Post/status')}?id={$vo['id']}">审批</a>
+            <a class="btn1" href="{:url('Post/status')}?id={$vo['id']}">审核</a>
         {/if}	
         {if condition="$vo['status']==4"}
             <a class="btn1" href="{:url('Post/addCat')}?id={$vo['id']}">媒体</a>		

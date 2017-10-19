@@ -26,7 +26,7 @@ class Admin extends Model
     }
     
     /*获取文章列表*/
-    public function get_post_list($status,$key=""){
+    public function get_post_list($status,$key="",$id=""){
         $user = Db('users')->field('id,name')->where('site_id',$this->sites)->select();
         foreach($user as $val){
             $user_data[$val['id']] = $val['name'];
@@ -43,6 +43,9 @@ class Admin extends Model
         }
         if(input('session.group_id')>1){
             $where .= " and status !=". 1;
+        }
+        if($id){
+            $where .= " and user_id=".$id;
         }
         $post_data = Db('posts')->where($where)->order('id desc')->paginate(20,false,['type'=>"BootstrapTwo"]);
         $page = $post_data ->render();
@@ -315,6 +318,22 @@ class Admin extends Model
             'page'=>$page,
             'user' =>$user_data
         ];
+    }
+    
+    public function get_stat_index(){
+        foreach(config('post_status') as $key=>$v ){
+             $status[$key]= Db('posts')->field('count(id) as count')->where('site_id',$this->sites)->where('status',$key)->find();
+             $status[$key]['name']=$v;
+        }
+        return $status;
+        
+    }
+    
+    public function get_borken_list($y){
+        for($i=1;$i<13;$i++){
+            $ymd[$i] = Db('posts')->field('count(id) as count')->where('site_id',$this->sites)->where('edit_y',$y)->where('edit_m',$i)->find();
+        }
+        return $ymd;
     }
 }
 ?>

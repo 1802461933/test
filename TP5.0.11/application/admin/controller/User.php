@@ -17,7 +17,6 @@ class User extends Common{
     
     /*内容页控制器*/
     public function index(Request $res){
-        //dump($this);
         $group_id =$res->param('group_id','0','trim');
         $data = $this->adminModel()->get_user_list($group_id);
         $this->assign('page',$data['page']);
@@ -55,7 +54,9 @@ class User extends Common{
                     'name' => input('post.name','','trim'),
                     'penname' => input('post.penName','','trim'),
                     'group_id' => input('post.group_id','1','trim'),
-                    'dateline' => time()
+                    'dateline' => time(),
+                    'phone' => input('post.phone','','trim'),
+                    'email' => input('post.email','','trim')
                 ]; 
                 $request = $this->adminModel()->add('users',$data);
                 if($request){
@@ -103,7 +104,9 @@ class User extends Common{
                 'name' =>input('post.name'),
                 'penname'=>input('post.penname'),
                 'group_id'=>input('post.group_id'),
-                'section_id'=>input('post.section')
+                'section_id'=>input('post.section'),
+                'phone' => input('post.phone','','trim'),
+                'email' => input('post.email',',','trim')
             ];
             $request = $this->adminModel()->mod('users',$data,$cid);
             if($request){

@@ -1,9 +1,47 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-	</head>
-	<body>
-	</body>
-</html>
+{include file="static/view/inc_header.html"}
+
+
+<h1>个人信息</h1>
+<form name="form1" id="form1" action="{:url('Own/index')}" method="post" >
+<input type="hidden" name="cid" id="id" value="{$user_info['id']}" />
+<table cellpadding="6" cellspacing="0" class="formTable">
+<tr>
+<th>用户名</th>
+<td><input type="text" name="uname" id="uname" value="{$user_info['uname']}" size="50" disabled="disabled"   maxlength="100" /> <span></span></td>
+</tr>
+<tr>
+<tr>
+<th>姓名</th>
+<td><input type="text" name="name" id="name" value="{$user_info['name']}" size="50"     maxlength="100" /> <span></span></td>
+</tr>
+<tr>
+<th>笔名</th>
+<td><input type="text" name="penname" id="penname" value="{$user_info['penname']}"  size="50" maxlength="100" /> <span></span></td>
+</tr>
+<th>电话</th>
+<td><input type="text" name="phone" id="phone" value="{$user_info['phone']}" size="50"     maxlength="100" /> <span></span></td>
+</tr>
+<th>邮箱</th>
+<td><input type="email" name="email" id="email" value="{$user_info['email']}" size="50"     maxlength="100" /> <span></span></td>
+</tr>
+<tr>
+<th>部门</th>
+<td>
+<input type="text" name="section" id="section" value="{$section}" size="50"  disabled="disabled"   maxlength="100" /> 
+</td>
+</tr>
+<tr>
+<th>用户组</th>
+<td>
+<input type="email" name="email" id="email"  value="{$group}" size="50" disabled="disabled"    maxlength="100" /> 
+</td>
+</tr>
+
+</table>
+<div class="fixed_buttonbox">
+<input type="submit" name="ok" id="ok_back" value="保存并返回" accesskey="s" />
+<input type="button" name="cancel" id="cancel" value="取消(×)" />
+</div>
+</form>
+
+{include file="static/view/inc_footer.html"}
